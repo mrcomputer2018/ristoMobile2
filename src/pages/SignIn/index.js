@@ -3,6 +3,8 @@ import { Platform } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
+import { AuthContext } from "../../contexts/auth";
+
 import 
 { BackGround, Container, ImageLogo, View, Text, TextInput,
     SubmitBotton, SubmitText, BtnLinK, LinkText } 
@@ -14,6 +16,12 @@ export default function SignIn(){
 
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
+
+    const { signIn } = useContext(AuthContext);
+
+    function handleSignIn() {
+        signIn(email, password);
+    }
 
     return(
         <BackGround>
@@ -50,7 +58,7 @@ export default function SignIn(){
 
                 {/* botao */}
                 <SubmitBotton
-              
+                    onPress={ handleSignIn }
                 >
                     <SubmitText>Acessar</SubmitText>
                 </SubmitBotton>
