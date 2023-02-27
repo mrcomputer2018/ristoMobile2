@@ -1,10 +1,11 @@
 // configuracoes stack
 import React from "react";
-import { Text, View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import Ionicons from "react-native-vector-icons/Ionicons"
 
 import Home from "../pages/Home";
 import Profile from "../pages/Profile"
+import CustomDrawer from "../components/CustomDrawer";
 
 const appDrawer = createDrawerNavigator();
 
@@ -12,12 +13,12 @@ export default function AppRoutes( ){
 
     return(
         <appDrawer.Navigator
-            drawerStyle={{
-                backgroundColor: '#333',
-            }}
+            drawerContent={ props => <CustomDrawer {...props} />}
             screenOptions={{
+                headerShown: false,
                 drawerLabelStyle: {
                     fontWeight: 'bold',
+                    fontSize: 15,
                 },
                 drawerActiveTintColor: '#333',
                 drawerActiveBackgroundColor: '#facc15',
@@ -33,7 +34,9 @@ export default function AppRoutes( ){
                 name="Home"
                 component={ Home }
                 options={{
-                    headerShown: false,
+                    drawerIcon: () => {
+                        <Ionicons name="home-outline" size={22} color='#333'/>
+                    },
                 }}
             />
             
@@ -42,6 +45,9 @@ export default function AppRoutes( ){
                 component={ Profile }
                 options={{
                     headerShown: false,
+                    drawerIcon: () => {
+                        <Ionicons name="person-outline" size={22} color='#333'/>
+                    },
                 }}
             />
         </appDrawer.Navigator>
