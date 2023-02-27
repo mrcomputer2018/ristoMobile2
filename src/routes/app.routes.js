@@ -21,8 +21,8 @@ export default function AppRoutes( ){
                 },
                 drawerActiveTintColor: '#333',
                 drawerActiveBackgroundColor: '#facc15',
-                drawerInactiveBackgroundColor: '#333',
-                drawerInactiveTintColor: "#ddd",
+                drawerInactiveBackgroundColor: '#ddd',
+                drawerInactiveTintColor: "#333",
                 drawerItemStyle: {
                     marginVertical: 5,
                     borderRadius: 5,
