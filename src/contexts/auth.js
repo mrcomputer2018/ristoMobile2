@@ -106,6 +106,8 @@ export default function AuthProvider({ children }) {
         );
     }
 
+    // Deslogar Usuario
+
     // adicionando DATA ao banco de dados local
     async function storageUser(data) {
         await AsyncStorage.setItem('Auth_user', JSON.stringify(data));
