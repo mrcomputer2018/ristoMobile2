@@ -107,6 +107,21 @@ export default function AuthProvider({ children }) {
     }
 
     // Deslogar Usuario
+    async function signOut() {
+        await firebase.auth().signOut();
+        await AsyncStorage.clear()
+        .then(
+            () => {
+                setUser(null);
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error.code);
+                alert(error.code);
+            }
+        );
+    }
 
     // adicionando DATA ao banco de dados local
     async function storageUser(data) {
@@ -115,7 +130,7 @@ export default function AuthProvider({ children }) {
 
     return(
         // exportando funcoes e dados vindos do firebase
-        <AuthContext.Provider value={{ signed: !!user, user, signUp, /* signIn */ }}>
+        <AuthContext.Provider value={{ signed: !!user, user, signUp, signIn, signOut, loading }}>
             { children }
         </AuthContext.Provider>
     );
