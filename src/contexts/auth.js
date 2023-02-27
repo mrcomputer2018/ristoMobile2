@@ -27,6 +27,46 @@ export default function AuthProvider({ children }) {
 
     }, []);
 
+    // Logar usuario
+    async function signIn(email, password){
+        await firebase.auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(
+            async (value) => {
+                // once - para pegar uma unica vez
+                let uid = value.user.uid;
+                await firebase.database().ref('users')
+                .child(uid)
+                .once('value')
+                .then(
+                    (sanpshot) => {
+                        let data = {
+                            uid: uid,
+                            nome: sanpshot.val().nome,
+                            email: value.user.email
+                        };
+
+                        setUser(data);
+                         /** salvando no async storage */
+                        storageUser(data);
+                    }
+                )
+                .catch(
+                    (error) => {
+                        console.log(error.code);
+                        alert(error.code);
+                    }
+                )
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error.code);
+                alert(error.code);
+            }
+        )
+    }
+
     // cadastro de usuario
     async function signUp(nome, email, password){
         await firebase.auth()
@@ -73,7 +113,7 @@ export default function AuthProvider({ children }) {
 
     return(
         // exportando funcoes e dados vindos do firebase
-        <AuthContext.Provider value={{ signed: !!user, user, signUp }}>
+        <AuthContext.Provider value={{ signed: !!user, user, signUp, /* signIn */ }}>
             { children }
         </AuthContext.Provider>
     );
