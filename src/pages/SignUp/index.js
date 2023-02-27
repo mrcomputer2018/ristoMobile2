@@ -14,10 +14,10 @@ export default function SignUp(){
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    const { SignUp, user } = useContext(AuthContext);
+    const { signUp, user } = useContext(AuthContext);
 
     function handleSignUp() {
-        signUp(email, password, nome);
+        signUp(nome, email, password);
     }
 
     return(
