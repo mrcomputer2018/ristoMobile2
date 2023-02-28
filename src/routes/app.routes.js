@@ -34,9 +34,8 @@ export default function AppRoutes( ){
                 name="Home"
                 component={ Home }
                 options={{
-                    drawerIcon: () => {
+                    drawerIcon: () =>
                         <Ionicons name="home-outline" size={22} color='#333'/>
-                    },
                 }}
             />
             
@@ -45,9 +44,8 @@ export default function AppRoutes( ){
                 component={ Profile }
                 options={{
                     headerShown: false,
-                    drawerIcon: () => {
+                    drawerIcon: () =>
                         <Ionicons name="person-outline" size={22} color='#333'/>
-                    },
                 }}
             />
         </appDrawer.Navigator>
