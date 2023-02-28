@@ -1,5 +1,6 @@
 const colors = {
     background: '#333',
+    backgroundLight: '#fafafa',
     textLight: '#fff',
     textDark: '#313234',
     inputPlaceholder:  '#rgba(255, 255, 255, 0.7)',
