@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, StyleSheet, Text, ImageBackground, Image, TouchableOpacity } from "react-native";
 import { DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
 
+import { AuthContext } from "../../contexts/auth";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function CustomDrawer(props){
+
+    const { user, signOut } = useContext(AuthContext);
+
     return (
         <View style={ styles.container }>
             <DrawerContentScrollView {...props} 
@@ -20,17 +24,20 @@ export default function CustomDrawer(props){
                         source={ require('../../assets/perfil.png') }
                     />
                     <Text style={ styles.textImage }>
-                        Marcelo Ribeiro
+                        { user.nome }
                     </Text>
                     <Text style={ styles.textEmail }>
-                        email: marcelo@marcelo.com
+                        email: { user.email }
                     </Text>
                 </ImageBackground>
                 <DrawerItemList {...props} />
             </DrawerContentScrollView>
 
             <View style={ styles.viewCustomize }>
-                <TouchableOpacity style={ styles.btn }>
+                <TouchableOpacity 
+                    style={ styles.btn }
+                    onPress={ signOut }
+                    >
                     <View style={{ flexDirection: 'row' }}>
                         <Ionicons name="ios-log-out-outline" size={24} color='#333' />
                         <Text style={ styles.textSignOut }>SignOut</Text>
