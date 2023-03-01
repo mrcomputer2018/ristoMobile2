@@ -32,7 +32,7 @@ export default function CustomDrawer(props){
             <View style={ styles.viewCustomize }>
                 <TouchableOpacity style={ styles.btn }>
                     <View style={{ flexDirection: 'row' }}>
-                        <Ionicons name="ios-log-out-outline" size={ 22 } color='#333' />
+                        <Ionicons name="ios-log-out-outline" size={24} color='#333' />
                         <Text style={ styles.textSignOut }>SignOut</Text>
                     </View>
                 </TouchableOpacity>
@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
         padding: 20,
         flex:1,
         justifyContent: 'center',
-        //alignContent: 'center',
         marginBottom: 10,
     },
     image: {

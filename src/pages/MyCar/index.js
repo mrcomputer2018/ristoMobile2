@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-export default function Home(){
+export default function MyCar(){
     return(
         <View style={ styles.container }>
-            <Text style={ styles.text }>Pagina Home</Text>
+            <Text style={ styles.text }>Meu Carrinho</Text>
         </View>
     );
 }
