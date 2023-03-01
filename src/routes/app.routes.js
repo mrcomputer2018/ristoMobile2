@@ -6,6 +6,7 @@ import Ionicons from "react-native-vector-icons/Ionicons"
 import Home from "../pages/Home";
 import Profile from "../pages/Profile"
 import MyCar from "../pages/MyCar";
+import Reserve from "../pages/Reserve";
 import CustomDrawer from "../components/CustomDrawer";
 
 const appDrawer = createDrawerNavigator();
@@ -49,6 +50,16 @@ export default function AppRoutes( ){
                                     <Ionicons name="md-cart-outline" size={24} color='#333'/>
                             }}
             />
+
+            <appDrawer.Screen
+                            name="Reserva" 
+                            component={ Reserve }
+                            options={{
+                                headerShown: false,
+                                drawerIcon: () =>
+                                    <Ionicons name="hourglass-outline" size={24} color='#333'/>
+                }}
+            />
             
             <appDrawer.Screen
                 name="Perfil" 
@@ -59,6 +70,7 @@ export default function AppRoutes( ){
                         <Ionicons name="person-outline" size={24} color='#333'/>
                 }}
             />
+
         </appDrawer.Navigator>
     );
 }

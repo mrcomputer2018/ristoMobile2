@@ -51,9 +51,9 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
      },
      viewBtn: {
-        height: 50,
-        width: 150,
-        backgroundColor: '#ff0000',
+        height: 45,
+        width: 300,
+        backgroundColor: '#facc15',
         borderRadius: 5,
         marginTop: 30,
      },
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
      },
      txtBtn: {
         fontSize: 18,
-        color: '#FFFFFF',
+        color: '#333',
         fontWeight: 'bold',
         textTransform: 'uppercase',
      },
