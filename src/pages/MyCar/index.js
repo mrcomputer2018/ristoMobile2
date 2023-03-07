@@ -9,7 +9,7 @@ export default function MyCar(){
             <Header />
 
             <View style={ styles.container }>
-                <Text style={ styles.text }>Pagina Home</Text>
+                <Text style={ styles.text }>Meu Carrinho</Text>
             </View>
         </View>
     );

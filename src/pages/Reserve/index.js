@@ -9,7 +9,7 @@ export default function Reserve(){
             <Header />
 
             <View style={ styles.container }>
-                <Text style={ styles.text }>Pagina Home</Text>
+                <Text style={ styles.text }>Reservas</Text>
             </View>
         </View>
     );
