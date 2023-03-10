@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import 
+{ Text, View, StyleSheet, TextInput, TouchableOpacity } 
+from "react-native";
 
 import Header from "../../components/Header";
 
