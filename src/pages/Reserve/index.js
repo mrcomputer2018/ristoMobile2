@@ -9,6 +9,9 @@ export default function Reserve(){
 
     const [ nameReserve, setNameReserve ] = useState('');
     const [ emailReserve, setEmailReserve ] = useState('');
+    const [ telephone, setTelephone ] = useState('');
+    const [ date, setDate ] = useState('');
+    const [ hour, setHour] = useState('');
 
     return(
         <View style={ styles.background }>
@@ -41,6 +44,45 @@ export default function Reserve(){
                     />
                 </View>
 
+                {/* telefone */}
+                <View style={ styles.viewInput }>
+                    <Text style={ styles.textLabel }>telefone de contato:</Text>
+                    <TextInput
+                        style={ styles.input }
+                        placeholder="ex: (21)99999-9999"
+                        autoCorrect={ false }
+                        autoCapitalize="none"
+                        value= { telephone }
+                        onChangeText={ (text) => setTelephone(text) }
+                    />
+                </View>
+
+                {/* dia */}
+                <View style={ styles.viewInput }>
+                    <Text style={ styles.textLabel }>Data:</Text>
+                    <TextInput
+                        style={ styles.input }
+                        placeholder="ex: 03/03/2023"
+                        autoCorrect={ false }
+                        autoCapitalize="none"
+                        value= { date }
+                        onChangeText={ (text) => setDate(text) }
+                    />
+                </View>
+
+                 {/* horario */}
+                 <View style={ styles.viewInput }>
+                    <Text style={ styles.textLabel }>Horario:</Text>
+                    <TextInput
+                        style={ styles.input }
+                        placeholder="ex: 13:00"
+                        autoCorrect={ false }
+                        autoCapitalize="none"
+                        value= { hour }
+                        onChangeText={ (text) => setHour(text) }
+                    />
+                </View>
+
                {/*  botao */}
                 <View style={ styles.btnView }>
                     <TouchableOpacity style={ styles.btn }>
@@ -69,6 +111,7 @@ const styles = StyleSheet.create({
         fontSize: 26,
         color: '#333',
         padding: 15,
+        fontWeight: 'bold',
     },
     viewInput: {
         marginLeft: 15,
