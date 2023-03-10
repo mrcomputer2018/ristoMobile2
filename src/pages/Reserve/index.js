@@ -106,6 +106,8 @@ const styles = StyleSheet.create({
         marginRight: 30,
         marginLeft: 30,
         marginBottom: 65,
+        borderWidth: 1,
+        borderColor: '#ddd',
     },
     text: {
         fontSize: 26,
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
     },
     input: {
         borderWidth: 1,
-        borderColor: '#131313',
+        borderColor: '#333',
         borderRadius: 16,
         padding: 10,
         fontSize: 18,
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginLeft: 15,
         marginRight: 15,
-        height: 50,
+        height: 45,
         borderRadius: 8,
     },
     textBtn: {
