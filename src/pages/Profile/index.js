@@ -3,35 +3,44 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 import { AuthContext } from "../../contexts/auth";
 
+import Header from "../../components/Header";
+
 export default function Profile( ){
 
     const { signOut, user } = useContext(AuthContext);
 
     return(
-        <View style={ styles.container }>
+        <View style={ styles.background }>
 
-        <Image
-        style={ styles.image }
-        source={ require('../../assets/perfil.png') }
-        />
+            <Header/>
 
-        <Text style={ styles.txt }>Bem-vindo:</Text>
-        <Text style={ styles.txtUser }>{ user.nome }</Text>
-        
-        <View style={ styles.viewBtn }>
-            <TouchableOpacity
-            style={ styles.btn }
-            onPress={ signOut }
-            >
-                <Text style={ styles.txtBtn }>Logout</Text>
-            </TouchableOpacity>
+            <View style={ styles.container }>
+                <Image
+                style={ styles.image }
+                source={ require('../../assets/perfil.png') }
+                />
+
+                <Text style={ styles.txt }>Bem-vindo:</Text>
+                <Text style={ styles.txtUser }>{ user.nome }</Text>
+                
+                <View style={ styles.viewBtn }>
+                    <TouchableOpacity
+                    style={ styles.btn }
+                    onPress={ signOut }
+                    >
+                        <Text style={ styles.txtBtn }>Logout</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
         </View>
-
-    </View>
+        
     );
 }
 
 const styles = StyleSheet.create({
+    background: {
+        flex: 1,
+    },
     container: { 
         flex: 1,
         justifyContent: 'center',
