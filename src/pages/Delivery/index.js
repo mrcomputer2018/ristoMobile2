@@ -1,31 +1,37 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 
-export default function Delivery({navigation}) {
+export default function Delivery() {
   
   return (
-    
       <View style={styles.container}>
 
+        {/* cabecalho */}
         <View style={styles.containerButtonSuperior}>
           <View style={styles.areabuttonOne}>
             {/* Adicionar onPress para abrir o Drawer */}
-            <TouchableOpacity onPress={()=> navigation.navigate('Risto')}>
-            <Image style={styles.buttonOne} source={require('../../../assets/userimage.png')}/>
+            <TouchableOpacity 
+            onPress={()=> navigation.navigate('Risto')}
+            >
+              <Image style={styles.buttonOne} source={require('../../assets/userimage.png')}/>
             </TouchableOpacity>
           </View>
+
           <View style={styles.areaTitle}>
-            <Image style={styles.ristotext} source={require('../../../assets/Risto.png')}/>
+            <Image style={styles.ristotext} source={require('../../assets/Risto.png')}/>
           </View>
+
           <View style={styles.areabuttonTwo}>
             {/* Adicionar onPress para página do carrinho */}
             <TouchableOpacity style={styles.buttonTwo}>
-            <Image style={styles.imagebutton2} source={require('../../../assets/carrinho.png')}/>
+            <Image style={styles.imagebutton2} source={require('../../assets/carrinho.png')}/>
             </TouchableOpacity>
           </View>
 
         </View>
+        {/* Fim cabecalho */}
 
+        {/* Pratos */}
         <Text style={styles.textdelivery}>Delivery</Text>
 
         <View style={styles.areaPratos}>
@@ -33,16 +39,16 @@ export default function Delivery({navigation}) {
           <View style={styles.pratos1}>
 
           <TouchableOpacity 
-          style={styles.areaPratoButton} 
-          onPress={()=> navigation.navigate('paginapratos', 
+            style={styles.areaPratoButton} 
+            onPress={()=> navigation.navigate('paginapratos', 
             {
               nome: 'Pizza',
               preco: '49,99',
               descricao: 'Deliciosa pizza, feita com queijo, orégano e azeitonas.',
-              imagem: require('../../../assets/pizza.jpg'),
+              imagem: require('../../assets/pizza.jpg'),
             }
-            )}>
-              <Image style={styles.imagePrato} source={require('../../../assets/pizza.jpg')}/>
+          )}>
+              <Image style={styles.imagePrato} source={require('../../assets/pizza.jpg')}/>
               <Text>Pizza</Text>
           </TouchableOpacity>
 
@@ -50,9 +56,9 @@ export default function Delivery({navigation}) {
               nome: 'Lasanha',
               preco: '59,99',
               descricao: 'Lasanha divina, feita com queijo, carne e molho de tomate.',
-              imagem: require('../../../assets/lasanha.jpg')
+              imagem: require('../../assets/lasanha.jpg')
             })}>
-              <Image style={styles.imagePrato} source={require('../../../assets/lasanha.jpg')}/>
+              <Image style={styles.imagePrato} source={require('../../assets/lasanha.jpg')}/>
               <Text>Lasanha</Text>
           </TouchableOpacity>
 
@@ -60,24 +66,23 @@ export default function Delivery({navigation}) {
                nome: 'Raviolli',
                preco: '49,99',
                descricao: 'Raviolli, feito com queijo e molho de tomate.',
-               imagem: require('../../../assets/raviolli.jpg'),
+               imagem: require('../../assets/raviolli.jpg'),
             })}>
-              <Image style={styles.imagePrato} source={require('../../../assets/raviolli.jpg')}/>
+              <Image style={styles.imagePrato} source={require('../../assets/raviolli.jpg')}/>
               <Text>Raviolli</Text>
           </TouchableOpacity>
 
-
-          </View>
-
-          <View style={styles.pratos2}>
+        </View>
+       
+        <View style={styles.pratos2}>
 
           <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('paginapratos', {
                nome: 'Risotto',
                preco: '39,99',
                descricao: 'Risoto maravilhoso.',
-               imagem: require('../../../assets/risoto.jpg'),
+               imagem: require('../../assets/risoto.jpg'),
             })}>
-              <Image style={styles.imagePrato} source={require('../../../assets/risoto.jpg')}/>
+              <Image style={styles.imagePrato} source={require('../../assets/risoto.jpg')}/>
               <Text>Risotto</Text>
           </TouchableOpacity>
             
@@ -85,9 +90,9 @@ export default function Delivery({navigation}) {
                nome: 'Spaghetti',
                preco: '49,99',
                descricao: 'Spaghetti feito com carne e molho de tomate.',
-               imagem: require('../../../assets/spaghetti.jpg'),
+               imagem: require('../../assets/spaghetti.jpg'),
             })}>
-              <Image style={styles.imagePrato} source={require('../../../assets/spaghetti.jpg')}/>
+              <Image style={styles.imagePrato} source={require('../../assets/spaghetti.jpg')}/>
               <Text>Spaghetti</Text>
           </TouchableOpacity>
 
@@ -95,14 +100,14 @@ export default function Delivery({navigation}) {
                 nome: 'Tiramisù',
                 preco: '39,99',
                 descricao: '*Manter na geladeira antes de consumir.',
-                imagem: require('../../../assets/tiramisu.jpg'),
+                imagem: require('../../assets/tiramisu.jpg'),
             })}>
-              <Image style={styles.imagePrato} source={require('../../../assets/tiramisu.jpg')}/>
+              <Image style={styles.imagePrato} source={require('../../assets/tiramisu.jpg')}/>
               <Text>Tiramisù</Text>
           </TouchableOpacity>
         
 
-          </View>
+        </View>
 
         </View>
 
@@ -113,13 +118,13 @@ export default function Delivery({navigation}) {
         {/* Adicionar onPress para página de reserva */}
         <TouchableOpacity style={styles.buttonReserva}>
 
-          <Image style={styles.imageRestaurante} source={require('../../../assets/restaurante.jpg')}/>
+          <Image style={styles.imageRestaurante} source={require('../../assets/restaurante.jpg')}/>
           <Text style={styles.textoReservai}>Venha nos conhecer</Text>
           <Text style={styles.textRestaurante}>O restaurante 5 estrelas que amamos!</Text>
 
         </TouchableOpacity>
       </View>
-    
+
   );
 }
 
@@ -131,7 +136,7 @@ const styles = StyleSheet.create({
 
   containerButtonSuperior: {
     flexDirection: 'row',
-    top: 40,
+    top:20,
     paddingHorizontal: 16,
   },
 
@@ -181,18 +186,18 @@ const styles = StyleSheet.create({
     height: 80,
     width: 80,
     resizeMode: 'contain',
-    bottom: 20,
+    bottom: 10,
   },
 
   textdelivery: {
     left: 16,
-    top: 60,
+    top: 10,
     fontSize: 24,
     fontWeight: 'bold',
   },
 
   areaPratos: {
-    top: 50,
+    top:5,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -201,25 +206,25 @@ const styles = StyleSheet.create({
     height: 1,
     width: '100%',
     backgroundColor: '#CDCDCD',
-    top: 30,
+    top:-20,
   },
 
   textreserva: {
     left: 16,
-    top: 50,
+    top: 0,
     fontSize: 24,
     fontWeight: 'bold',
   },
 
   pratos1: {
     flexDirection: 'row',
-    top: 40,
+    top: 30,
     paddingHorizontal: 16,
   },
 
   pratos2: {
     flexDirection: 'row',
-    marginVertical: 70,
+    marginVertical:60,
     paddingHorizontal: 16,
   },
 
@@ -265,7 +270,7 @@ const styles = StyleSheet.create({
 
   buttonReserva: {
     height: 210,
-    top: 70,
+    top: 20,
   },
  
 });

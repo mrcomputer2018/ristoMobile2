@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import Profile from "../pages/Profile"
 import MyCar from "../pages/MyCar";
 import Reserve from "../pages/Reserve";
+import Delivery from "../pages/Delivery";
 import CustomDrawer from "../components/CustomDrawer";
 
 const appDrawer = createDrawerNavigator();
@@ -42,22 +43,32 @@ export default function AppRoutes( ){
             />
 
             <appDrawer.Screen
-                            name="Meu Carrinho" 
-                            component={ MyCar }
-                            options={{
-                                headerShown: false,
-                                drawerIcon: () =>
-                                    <Ionicons name="md-cart-outline" size={24} color='#333'/>
-                            }}
+                name="Delivery" 
+                component={ Delivery }
+                options={{
+                    headerShown: false,
+                    drawerIcon: () =>
+                        <Ionicons name="md-cart-outline" size={24} color='#333'/>
+                }}
             />
 
             <appDrawer.Screen
-                            name="Reserva" 
-                            component={ Reserve }
-                            options={{
-                                headerShown: false,
-                                drawerIcon: () =>
-                                    <Ionicons name="hourglass-outline" size={24} color='#333'/>
+                name="Meu Carrinho" 
+                component={ MyCar }
+                options={{
+                    headerShown: false,
+                    drawerIcon: () =>
+                        <Ionicons name="md-cart-outline" size={24} color='#333'/>
+                }}
+            />
+
+            <appDrawer.Screen
+                name="Reserva" 
+                component={ Reserve }
+                options={{
+                    headerShown: false,
+                    drawerIcon: () =>
+                        <Ionicons name="hourglass-outline" size={24} color='#333'/>
                 }}
             />
             
