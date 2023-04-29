@@ -32,12 +32,16 @@ export default function Delivery({navigation}) {
 
           <View style={styles.pratos1}>
 
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('paginapratos', {
+          <TouchableOpacity 
+          style={styles.areaPratoButton} 
+          onPress={()=> navigation.navigate('paginapratos', 
+            {
               nome: 'Pizza',
               preco: '49,99',
               descricao: 'Deliciosa pizza, feita com queijo, orégano e azeitonas.',
               imagem: require('../../../assets/pizza.jpg'),
-            })}>
+            }
+            )}>
               <Image style={styles.imagePrato} source={require('../../../assets/pizza.jpg')}/>
               <Text>Pizza</Text>
           </TouchableOpacity>
