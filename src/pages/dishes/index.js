@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, KeyboardAvoidingView, View, Image, TouchableOpacity, Platform } from 'react-native';
 
 
-export default function Paginapratos({navigation, route}) {
+export default function Dishes({navigation, route}) {
   return (
       <KeyboardAvoidingView 
       behavior={Platform.OS == 'ios' ? 'padding' : ''} 
