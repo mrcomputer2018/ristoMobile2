@@ -1,7 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 export default function Delivery() {
+
+  const navigation = useNavigation();
   
   return (
       <View style={styles.container}>
@@ -31,7 +34,7 @@ export default function Delivery() {
         </View>
         {/* Fim cabecalho */}
 
-        {/* Pratos */}
+        {/* Delivery */}
         <Text style={styles.textdelivery}>Delivery</Text>
 
         <View style={styles.areaPratos}>
@@ -52,7 +55,7 @@ export default function Delivery() {
               <Text>Pizza</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('paginapratos', {
+          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Dishes', {
               nome: 'Lasanha',
               preco: '59,99',
               descricao: 'Lasanha divina, feita com queijo, carne e molho de tomate.',
@@ -62,7 +65,7 @@ export default function Delivery() {
               <Text>Lasanha</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('paginapratos', {
+          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Dishes', {
                nome: 'Raviolli',
                preco: '49,99',
                descricao: 'Raviolli, feito com queijo e molho de tomate.',
@@ -76,7 +79,7 @@ export default function Delivery() {
        
         <View style={styles.pratos2}>
 
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('paginapratos', {
+          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Dishes', {
                nome: 'Risotto',
                preco: '39,99',
                descricao: 'Risoto maravilhoso.',
@@ -86,7 +89,7 @@ export default function Delivery() {
               <Text>Risotto</Text>
           </TouchableOpacity>
             
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('paginapratos', {
+          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Dishes', {
                nome: 'Spaghetti',
                preco: '49,99',
                descricao: 'Spaghetti feito com carne e molho de tomate.',
@@ -96,7 +99,7 @@ export default function Delivery() {
               <Text>Spaghetti</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('paginapratos', {
+          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Dishes', {
                 nome: 'Tiramisù',
                 preco: '39,99',
                 descricao: '*Manter na geladeira antes de consumir.',
@@ -115,8 +118,11 @@ export default function Delivery() {
         
         <Text style={styles.textreserva}>Reserva</Text>
 
-        {/* Adicionar onPress para página de reserva */}
-        <TouchableOpacity style={styles.buttonReserva}>
+        {/* reserva */}
+        <TouchableOpacity 
+          style={styles.buttonReserva}
+          onPress={() => navigation.navigate('Reserve')}
+        >
 
           <Image style={styles.imageRestaurante} source={require('../../assets/restaurante.jpg')}/>
           <Text style={styles.textoReservai}>Venha nos conhecer</Text>
@@ -186,7 +192,7 @@ const styles = StyleSheet.create({
     height: 80,
     width: 80,
     resizeMode: 'contain',
-    bottom: 10,
+    bottom: 20,
   },
 
   textdelivery: {
