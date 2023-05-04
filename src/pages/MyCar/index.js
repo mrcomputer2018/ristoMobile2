@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Text, View, StyleSheet, SafeAreaView, TouchableOpacity, FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -6,8 +6,11 @@ import  Feather  from "react-native-vector-icons/Feather";
 
 import Header from "../../components/Header";
 import ListDishes from "../../components/ListDishes";
+import { CartContext } from "../../contexts/cartContext";
 
 export default function MyCar(){
+
+    const { cart } = useContext(CartContext);
 
     const navigation = useNavigation();
 
@@ -71,7 +74,9 @@ export default function MyCar(){
                     onPress={ ( )=> navigation.navigate('Cart') }
                 >
                     <View style={ styles.dot }>
-                        <Text style={ styles.dotText }>3</Text>
+                        <Text style={ styles.dotText }>
+                            { cart?.length }
+                        </Text>
                     </View>
 
                     <Feather name="shopping-cart" size={ 30 }  color="#333" />                

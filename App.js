@@ -7,6 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from 'styled-components';
 
 import AuthProvider from "./src/contexts/auth";
+import CartProvider from './src/contexts/cartContext';
+
 import Routes from "./src/routes";
 import colors from './src/colors/colors';
 
@@ -16,16 +18,20 @@ export default function App() {
       {/* para todas as rotas terem acesso as informacoes */}
       <AuthProvider>
 
-        <ThemeProvider theme={ colors }>
+        <CartProvider>
 
-          <StatusBar
-            backgroundColor="#333"
-            barStyle="light-content"
-          />
+          <ThemeProvider theme={ colors }>
 
-          <Routes />
+            <StatusBar
+              backgroundColor="#333"
+              barStyle="light-content"
+            />
 
-        </ThemeProvider>
+            <Routes />
+
+          </ThemeProvider>
+
+        </CartProvider>
 
       </AuthProvider>
 
