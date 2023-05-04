@@ -14,7 +14,7 @@ export default function Delivery() {
           <View style={styles.areabuttonOne}>
             {/* Adicionar onPress para abrir o Drawer */}
             <TouchableOpacity 
-            onPress={()=> navigation.navigate('Risto')}
+              onPress={()=> navigation.navigate('Perfil')}
             >
               <Image style={styles.buttonOne} source={require('../../assets/userimage.png')}/>
             </TouchableOpacity>
@@ -26,8 +26,11 @@ export default function Delivery() {
 
           <View style={styles.areabuttonTwo}>
             {/* Adicionar onPress para página do carrinho */}
-            <TouchableOpacity style={styles.buttonTwo}>
-            <Image style={styles.imagebutton2} source={require('../../assets/carrinho.png')}/>
+            <TouchableOpacity 
+              style={styles.buttonTwo}
+              onPress={ () => navigation.navigate('Meu Carrinho') }
+            >
+              <Image style={styles.imagebutton2} source={require('../../assets/carrinho.png')}/>
             </TouchableOpacity>
           </View>
 
@@ -43,7 +46,7 @@ export default function Delivery() {
 
           <TouchableOpacity 
             style={styles.areaPratoButton} 
-            onPress={()=> navigation.navigate('paginapratos', 
+            onPress={()=> navigation.navigate('Dishes', 
             {
               nome: 'Pizza',
               preco: '49,99',
@@ -55,7 +58,9 @@ export default function Delivery() {
               <Text>Pizza</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Dishes', {
+          <TouchableOpacity 
+            style={styles.areaPratoButton} 
+            onPress={()=> navigation.navigate('Dishes', {
               nome: 'Lasanha',
               preco: '59,99',
               descricao: 'Lasanha divina, feita com queijo, carne e molho de tomate.',

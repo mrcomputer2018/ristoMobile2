@@ -11,13 +11,13 @@ export default function Dishes({navigation, route}) {
         <View style={styles.containerButtonSuperior}>
           <View style={styles.areabuttonOne}>
             <TouchableOpacity style={styles.buttonOne} onPress={()=> navigation.navigate('Risto')}>
-            <Image style={styles.imagebutton1} source={require('../../../assets/Group_1.png')}/>
+            <Image style={styles.imagebutton1} source={require('../../assets/Group_1.png')}/>
             </TouchableOpacity>
           </View>
           <View style={styles.areabuttonTwo}>
             {/* Adicionar onPress para página do carrinho */}
             <TouchableOpacity style={styles.buttonTwo}>
-            <Image style={styles.imagebutton2} source={require('../../../assets/Star_1.png')}/>
+            <Image style={styles.imagebutton2} source={require('../../assets/Star_1.png')}/>
             </TouchableOpacity>
           </View>
 
@@ -53,7 +53,7 @@ export default function Dishes({navigation, route}) {
               {/* Adicionar evento para jogar o prato para o carrinho */}
             <TouchableOpacity style={styles.buttonCarrinho}>
               <Text style={styles.textobotao}>Adicionar ao carrinho</Text>
-              <Image style={styles.imagebuttonc} source={require('../../../assets/Group_2.png')}/>
+              <Image style={styles.imagebuttonc} source={require('../../assets/Group_2.png')}/>
             </TouchableOpacity>
             </View>
         </View>
