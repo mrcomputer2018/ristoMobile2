@@ -10,7 +10,7 @@ import { CartContext } from "../../contexts/cartContext";
 
 export default function MyCar(){
 
-    const { cart } = useContext(CartContext);
+    const { cart, addItemCard } = useContext(CartContext);
 
     const navigation = useNavigation();
 
@@ -18,46 +18,50 @@ export default function MyCar(){
         {
             id: '1',
             nome: 'Pizza',
-            preco: '49,99',
+            preco: 49.99,
             descricao: 'Deliciosa pizza, feita com queijo, orégano e azeitonas.',
             imagem: require('../../assets/pizza.jpg'),
         },
         {
             id: '2',
             nome: 'Lasanha',
-            preco: '59,99',
+            preco: 59.99,
             descricao: 'Lasanha divina, feita com queijo, carne e molho de tomate.',
             imagem: require('../../assets/lasanha.jpg')
         },
         {
             id: '3',
             nome: 'Raviolli',
-            preco: '49,99',
+            preco: 49.99,
             descricao: 'Raviolli, feito com queijo e molho de tomate.',
             imagem: require('../../assets/raviolli.jpg'),
         },
         {
             id: '4',
             nome: 'Risotto',
-            preco: '39,99',
+            preco: 39.99,
             descricao: 'Risoto maravilhoso.',
             imagem: require('../../assets/risoto.jpg'),
         },
         {
             id: '5',
             nome: 'Spaghetti',
-            preco: '49,99',
+            preco: 49.99,
             descricao: 'Spaghetti feito com carne e molho de tomate.',
             imagem: require('../../assets/spaghetti.jpg'),
         },
         {
             id: '6',
             nome: 'Tiramisù',
-            preco: '39,99',
+            preco: 39.99,
             descricao: '*Manter na geladeira antes de consumir.',
             imagem: require('../../assets/tiramisu.jpg'),
         },
     ]);
+
+    function handleAddCart(item){
+        addItemCard(item);
+    }
 
     return(
         <SafeAreaView 
@@ -67,11 +71,11 @@ export default function MyCar(){
 
             <View style={ styles.container }>
                 
-                <Text style={ styles.title }>Pratos</Text>
+                <Text style={ styles.title }>Adicionando ao carrinho...</Text>
 
                 <TouchableOpacity 
                     style={ styles.btnCart }
-                    onPress={ ( )=> navigation.navigate('Cart') }
+                    onPress={ ( )=> navigation.navigate('Meu Carrinho') }
                 >
                     <View style={ styles.dot }>
                         <Text style={ styles.dotText }>
@@ -87,7 +91,11 @@ export default function MyCar(){
                 style={ styles.listDishes }
                 data={ products }
                 keyExtractor={ (item) => String(item.id) }
-                renderItem={ ({ item }) => <ListDishes data={ item } /> }
+                renderItem={ 
+                    ({ item }) => <ListDishes 
+                    data={ item } addToCart={ () => handleAddCart(item) } 
+                    /> 
+                }
             />
 
         </SafeAreaView>
@@ -97,14 +105,15 @@ export default function MyCar(){
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        paddingEnd: 14,
-        paddingStart: 14,
     },
     container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: 20,
+        paddingEnd: 14,
+        paddingStart: 14,
+        marginTop: 10,
     },
     title: {
         fontSize: 22,

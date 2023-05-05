@@ -7,7 +7,6 @@ import Home from "../pages/Home";
 import Profile from "../pages/Profile"
 import MyCar from "../pages/MyCar";
 import Reserve from "../pages/Reserve";
-import Delivery from "../pages/Delivery";
 import Cart from "../pages/Cart";
 import CustomDrawer from "../components/CustomDrawer";
 
@@ -44,27 +43,17 @@ export default function AppRoutes( ){
             />
 
             <appDrawer.Screen
-                name="Delivery" 
-                component={ Delivery }
-                options={{
-                    headerShown: false,
-                    drawerIcon: () =>
-                        <Ionicons name="md-cart-outline" size={24} color='#333'/>
-                }}
-            />
-
-            <appDrawer.Screen
-                name="Meu Carrinho" 
+                name="Seu Pedido" 
                 component={ MyCar }
                 options={{
                     headerShown: false,
                     drawerIcon: () =>
-                        <Ionicons name="md-cart-outline" size={24} color='#333'/>
+                        <Ionicons name="md-fast-food-outline" size={24} color='#333'/>
                 }}
             />
 
 <appDrawer.Screen
-                name="Cart" 
+                name="Meu Carrinho" 
                 component={ Cart }
                 options={{
                     headerShown: false,

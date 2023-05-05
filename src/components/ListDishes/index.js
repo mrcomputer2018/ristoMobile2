@@ -1,10 +1,10 @@
 import React from "react";
 import 
-    { View, Text, StyleSheet, TouchableOpacity } 
-    from "react-native";
+{ View, Text, StyleSheet, TouchableOpacity } 
+from "react-native";
 
 
-export default function ListDishes({ data }){
+export default function ListDishes({ data, addToCart }){
 
      return(
         <View style={ styles.container }>
@@ -13,7 +13,10 @@ export default function ListDishes({ data }){
                 <Text style={ styles.txtPrice }>R$ {data.preco}</Text>
             </View>
 
-            <TouchableOpacity style={ styles.btnAdd }>
+            <TouchableOpacity 
+                style={ styles.btnAdd }
+                onPress={ addToCart }
+            >
                 <Text style={ styles.btnText }>+</Text>
             </TouchableOpacity>
             
@@ -24,15 +27,20 @@ export default function ListDishes({ data }){
 const styles = StyleSheet.create({
     container: {
         borderWidth: 1,
-        borderColor: '#dfdfdf',
+        borderColor: '#bbb',
         borderRadius: 2,
         marginBottom: 14,
+        marginLeft: 14,
+        marginRight: 14,
         padding: 8,
         paddingBottom: 14,
         paddingTop: 14,
+        paddingLeft: 14,
+        paddingRight: 14,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        backgroundColor: '#fff'
     },
     txtTitle : {
         color: '#333',
