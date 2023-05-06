@@ -50,7 +50,7 @@ export default function AppRoutes( ){
                 options={{
                     drawerIcon: () =>
                         <Ionicons 
-                        name="home-outline" size={24} color='#333'/>
+                        name="md-pizza-outline" size={24} color='#333'/>
                 }}
             />
 

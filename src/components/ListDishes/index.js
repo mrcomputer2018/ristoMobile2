@@ -47,7 +47,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     txtPrice: {
-
+        color: '#E4723C',
+        fontWeight: 'bold',
+        fontSize: 16
     },
     btnAdd : {
         paddingStart: 12,
