@@ -1,5 +1,5 @@
 import React,{ useState } from "react";
-import { View, Text, StyleSheet,TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet,TouchableOpacity, Image } from "react-native";
 
 export default function CardItem({ data, addAmount, removeAmount }){
 
@@ -27,27 +27,36 @@ export default function CardItem({ data, addAmount, removeAmount }){
 
     return(
         <View style={ styles.container }>
-            <View>
-                <Text style={ styles.title }>{ data.nome }</Text>
-                <Text style={ styles.price }>RS { data.preco }</Text>
+            <View style={ styles.viewDescription }>
+                <View>
+                    <Text style={ styles.title }>{ data.nome }</Text>
+                    <Text style={ styles.price }>RS { data.preco }</Text>
+                </View>
+                
+                <View style={ styles.amountContainer }>
+                    <TouchableOpacity 
+                        style={ styles.btnAdd }
+                        onPress={ handleDecrease }    
+                    >
+                        <Text style={ styles.btnText }>-</Text>
+                    </TouchableOpacity>
+
+                    <Text style={ styles.amount }>{ amount }</Text>
+
+                    <TouchableOpacity 
+                        style={ styles.btnAdd }
+                        onPress={ handleIncrease }
+                    >
+                        <Text style={ styles.btnText }>+</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-            
-            <View style={ styles.amountContainer }>
-                <TouchableOpacity 
-                    style={ styles.btnAdd }
-                    onPress={ handleDecrease }    
-                >
-                    <Text style={ styles.btnText }>-</Text>
-                </TouchableOpacity>
 
-                <Text style={ styles.amount }>{ amount }</Text>
-
-                <TouchableOpacity 
-                    style={ styles.btnAdd }
-                    onPress={ handleIncrease }
-                >
-                    <Text style={ styles.btnText }>+</Text>
-                </TouchableOpacity>
+            <View>
+                <Image 
+                    style={ styles.image } 
+                    source={ data?.imagem }
+                />
             </View>
         </View>
     );
@@ -62,6 +71,13 @@ const styles = StyleSheet.create({
         marginTop: 14,
         padding: 8,
         flex:1,
+        flexDirection: 'row',
+        justifyContent:'space-between',
+        alignItems: 'center',
+        backgroundColor: '#fff'
+    },
+    viewDescription: {
+        lexdirection: 'column',
     },
     title: {
         fontSize: 18,
@@ -93,4 +109,9 @@ const styles = StyleSheet.create({
         marginLeft: 14,
         marginRight: 14,
     },
+    image: {
+        height: 85,
+        width: 85,
+        borderRadius: 2,
+    }
 });

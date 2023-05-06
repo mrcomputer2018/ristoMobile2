@@ -27,7 +27,7 @@ export default function MyCar(){
             nome: 'Lasanha',
             preco: 59.99,
             descricao: 'Lasanha divina, feita com queijo, carne e molho de tomate.',
-            imagem: require('../../assets/lasanha.jpg')
+            imagem: require('../../assets/lasanha.jpg'),
         },
         {
             id: '3',
@@ -71,18 +71,19 @@ export default function MyCar(){
 
             <View style={ styles.container }>
                 
-                <Text style={ styles.title }>Adicionando ao carrinho...</Text>
+                <Text style={ styles.title }>Adicione ao seu carrinho...</Text>
 
                 <TouchableOpacity 
                     style={ styles.btnCart }
                     onPress={ ( )=> navigation.navigate('Meu Carrinho') }
                 >
-                    <View style={ styles.dot }>
+                    { cart.length >= 1 && (
+                        <View style={ styles.dot }>
                         <Text style={ styles.dotText }>
                             { cart?.length }
                         </Text>
                     </View>
-
+                    )}
                     <Feather name="shopping-cart" size={ 30 }  color="#333" />                
                 </TouchableOpacity>
             </View>
@@ -135,7 +136,4 @@ const styles = StyleSheet.create({
     dotText: {
         fontSize: 12,
     },
-    listDishes :{
-
-    }
 });

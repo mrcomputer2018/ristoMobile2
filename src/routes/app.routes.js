@@ -8,6 +8,7 @@ import Profile from "../pages/Profile"
 import MyCar from "../pages/MyCar";
 import Reserve from "../pages/Reserve";
 import Cart from "../pages/Cart";
+import Dishes from "../pages/Dishes";
 import CustomDrawer from "../components/CustomDrawer";
 
 const appDrawer = createDrawerNavigator();
@@ -38,7 +39,18 @@ export default function AppRoutes( ){
                 component={ Home }
                 options={{
                     drawerIcon: () =>
-                        <Ionicons name="home-outline" size={24} color='#333'/>
+                        <Ionicons 
+                        name="home-outline" size={24} color='#333'/>
+                }}
+            />
+
+            <appDrawer.Screen 
+                name="Pratos"
+                component={ Dishes }
+                options={{
+                    drawerIcon: () =>
+                        <Ionicons 
+                        name="home-outline" size={24} color='#333'/>
                 }}
             />
 

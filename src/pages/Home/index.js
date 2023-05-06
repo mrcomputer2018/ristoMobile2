@@ -16,21 +16,27 @@ export default function Delivery() {
             <TouchableOpacity 
               onPress={()=> navigation.navigate('Perfil')}
             >
-              <Image style={styles.buttonOne} source={require('../../assets/userimage.png')}/>
+              <Image 
+              style={styles.buttonOne} 
+              source={require('../../assets/userimage.png')}/>
             </TouchableOpacity>
           </View>
 
           <View style={styles.areaTitle}>
-            <Image style={styles.ristotext} source={require('../../assets/Risto.png')}/>
+            <Image 
+            style={styles.ristotext} 
+            source={require('../../assets/Risto.png')}/>
           </View>
 
           <View style={styles.areabuttonTwo}>
             {/* Adicionar onPress para página do carrinho */}
             <TouchableOpacity 
               style={styles.buttonTwo}
-              onPress={ () => navigation.navigate('Meu Carrinho') }
+              onPress={ () => navigation.navigate('Seu Pedido') }
             >
-              <Image style={styles.imagebutton2} source={require('../../assets/carrinho.png')}/>
+              <Image 
+              style={styles.imagebutton2} 
+              source={require('../../assets/carrinho.png')}/>
             </TouchableOpacity>
           </View>
 
@@ -46,7 +52,7 @@ export default function Delivery() {
 
           <TouchableOpacity 
             style={styles.areaPratoButton} 
-            onPress={()=> navigation.navigate('Dishes', 
+            onPress={()=> navigation.navigate('Pratos', 
             {
               nome: 'Pizza',
               preco: '49,99',
@@ -60,7 +66,7 @@ export default function Delivery() {
 
           <TouchableOpacity 
             style={styles.areaPratoButton} 
-            onPress={()=> navigation.navigate('Dishes', {
+            onPress={()=> navigation.navigate('Pratos', {
               nome: 'Lasanha',
               preco: '59,99',
               descricao: 'Lasanha divina, feita com queijo, carne e molho de tomate.',
@@ -84,17 +90,20 @@ export default function Delivery() {
        
         <View style={styles.pratos2}>
 
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Dishes', {
-               nome: 'Risotto',
-               preco: '39,99',
-               descricao: 'Risoto maravilhoso.',
-               imagem: require('../../assets/risoto.jpg'),
+          <TouchableOpacity 
+            style={styles.areaPratoButton} 
+            onPress={()=> navigation.navigate('Pratos', 
+            {
+                nome: 'Risotto',
+                preco: '39,99',
+                descricao: 'Risoto maravilhoso.',
+                imagem: require('../../assets/risoto.jpg'),
             })}>
               <Image style={styles.imagePrato} source={require('../../assets/risoto.jpg')}/>
               <Text>Risotto</Text>
           </TouchableOpacity>
             
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Dishes', {
+          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Pratos', {
                nome: 'Spaghetti',
                preco: '49,99',
                descricao: 'Spaghetti feito com carne e molho de tomate.',
@@ -104,7 +113,7 @@ export default function Delivery() {
               <Text>Spaghetti</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Dishes', {
+          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Pratos', {
                 nome: 'Tiramisù',
                 preco: '39,99',
                 descricao: '*Manter na geladeira antes de consumir.',
@@ -147,7 +156,7 @@ const styles = StyleSheet.create({
 
   containerButtonSuperior: {
     flexDirection: 'row',
-    top:20,
+    top:15,
     paddingHorizontal: 16,
   },
 
@@ -202,7 +211,7 @@ const styles = StyleSheet.create({
 
   textdelivery: {
     left: 16,
-    top: 10,
+    top: 5,
     fontSize: 24,
     fontWeight: 'bold',
   },
@@ -229,7 +238,7 @@ const styles = StyleSheet.create({
 
   pratos1: {
     flexDirection: 'row',
-    top: 30,
+    top: 25,
     paddingHorizontal: 16,
   },
 

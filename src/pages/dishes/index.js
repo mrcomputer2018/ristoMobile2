@@ -5,19 +5,32 @@ import { StyleSheet, Text, TextInput, KeyboardAvoidingView, View, Image, Touchab
 export default function Dishes({navigation, route}) {
   return (
       <KeyboardAvoidingView 
-      behavior={Platform.OS == 'ios' ? 'padding' : ''} 
-      style={styles.container} 
+        behavior={Platform.OS == 'ios' ? 'padding' : ''} 
+        style={styles.container} 
       >
         <View style={styles.containerButtonSuperior}>
+
           <View style={styles.areabuttonOne}>
-            <TouchableOpacity style={styles.buttonOne} onPress={()=> navigation.navigate('Risto')}>
-            <Image style={styles.imagebutton1} source={require('../../assets/Group_1.png')}/>
+            <TouchableOpacity 
+              style={styles.buttonOne} 
+              onPress={()=> navigation.navigate('Home')}>
+              <Image 
+                style={styles.imagebutton1} 
+                source={require('../../assets/Group_1.png')}
+              />
             </TouchableOpacity>
           </View>
+
           <View style={styles.areabuttonTwo}>
             {/* Adicionar onPress para página do carrinho */}
-            <TouchableOpacity style={styles.buttonTwo}>
-            <Image style={styles.imagebutton2} source={require('../../assets/Star_1.png')}/>
+            <TouchableOpacity 
+              style={styles.buttonTwo}
+              onPress={ ( )=> navigation.navigate('Meu Carrinho') }
+            >
+              <Image 
+                style={styles.imagebutton2} 
+                source={require('../../assets/Star_1.png')}
+              />
             </TouchableOpacity>
           </View>
 
@@ -39,22 +52,16 @@ export default function Dishes({navigation, route}) {
               <View style={styles.linhadescricao}></View>
 
               <Text style={styles.descricaoprato}>{route.params?.descricao}</Text>
-            
-            <View style={styles.divquantidade}>
 
-              <Text style={styles.quantidadetexto}>Qtd:</Text>
-
-              <TouchableOpacity style={styles.pickerquantidade}>
-              <TextInput style={styles.textobotao} placeholder='1' keyboardType='numeric'></TextInput>
-              </TouchableOpacity>
-             
-            </View>
             <View style={styles.areaButtonAdicionar}>
               {/* Adicionar evento para jogar o prato para o carrinho */}
-            <TouchableOpacity style={styles.buttonCarrinho}>
-              <Text style={styles.textobotao}>Adicionar ao carrinho</Text>
-              <Image style={styles.imagebuttonc} source={require('../../assets/Group_2.png')}/>
-            </TouchableOpacity>
+              <TouchableOpacity style={styles.buttonCarrinho}>
+                <Text style={styles.textobotao}>Adicionar ao carrinho</Text>
+                <Image 
+                  style={styles.imagebuttonc} 
+                  source={require('../../assets/Group_2.png')}
+                />
+              </TouchableOpacity>
             </View>
         </View>
         </View>
@@ -71,8 +78,8 @@ const styles = StyleSheet.create({
 
   imageLogo: {
     width: '100%',
-    height: 400,
-    top: 75,
+    height:300,
+    top:45,
   },
 
   areaButtonAdicionar: {
@@ -99,7 +106,7 @@ const styles = StyleSheet.create({
 
   containerButtonSuperior: {
     flexDirection: 'row',
-    top: 40,
+    top: 15,
     paddingHorizontal: 16,
   },
 
@@ -136,14 +143,14 @@ const styles = StyleSheet.create({
 
   nomePrato: {
     left: 16,
-    top: 60,
+    top: 30,
     fontSize: 24,
     fontWeight: 'bold',
   },
 
   precoPrato: {
     left: 16,
-    top: 65,
+    top: 30,
     fontSize: 24,
     fontWeight: 'bold',
     color: '#E4723C',
@@ -178,11 +185,12 @@ const styles = StyleSheet.create({
 
   divquantidade: {
     flexDirection: 'row',
-    bottom: 15,
+    bottom: 30,
+    alignItems: 'center'
   },
 
   textobotao: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: 'bold',
   },
 
@@ -191,8 +199,8 @@ const styles = StyleSheet.create({
   },
 
   pickerquantidade: {
-    height: 39,
-    width: 58,
+    height:50,
+    width: 50,
     marginLeft: 45,
     borderWidth: 1,
     borderRadius: 10,

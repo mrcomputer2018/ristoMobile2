@@ -19,7 +19,6 @@ export default function ListDishes({ data, addToCart }){
             >
                 <Text style={ styles.btnText }>+</Text>
             </TouchableOpacity>
-            
         </View>
     );
 }
