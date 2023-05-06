@@ -46,9 +46,38 @@ export default function Cart(){
                     ) 
                 }
                 ListFooterComponent={ () =>
+                    <View>
                         <Text style={ styles.total }>
                             { total !== 0 && `Total: RS ${ total }`}
                         </Text>
+
+                        <View style={ styles.btnViewFooter }>
+                            <TouchableOpacity 
+                                style={ styles.btnFooter }
+                                onPress={
+                                    () => navigation.navigate('Seu Pedido')
+                                }
+                            >
+                                <Text style={ styles.textBtnFooter }>
+                                    Fechar pedido
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        
+                        <View style={ styles.btnViewFooter }>
+                            <TouchableOpacity 
+                                style={ styles.btnFooter }
+                                onPress={
+                                    () => navigation.navigate('Seu Pedido')
+                                }
+                            >
+                                <Text style={ styles.textBtnFooter }>
+                                    Continuar Comprando
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 }
             />
         </View>
@@ -75,7 +104,7 @@ const styles = StyleSheet.create({
         paddingTop: 300,
     },
     total: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 24,
         marginTop: 10,
@@ -97,7 +126,25 @@ const styles = StyleSheet.create({
     textBtn: {
         color: '#333',
         fontSize: 20,
-        fontWeight: 'bold',
         textTransform: 'uppercase',
     },
+    btnViewFooter: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    btnFooter: {
+        backgroundColor: '#E4723C',
+        height: 45,
+        width:220,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 8,
+    },
+    textBtnFooter: {
+        color: '#333',
+        fontSize: 16,
+        fontWeight: 'bold',
+    }
 });
