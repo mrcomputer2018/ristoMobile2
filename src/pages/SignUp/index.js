@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { ActivityIndicator } from "react-native";
 import 
 { BackGround, 
     Container, View, Text, TextInput,
@@ -14,7 +15,7 @@ export default function SignUp(){
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    const { signUp, user } = useContext(AuthContext);
+    const { signUp, user, loadingAuth } = useContext(AuthContext);
 
     function handleSignUp() {
         signUp(nome, email, password);
@@ -64,7 +65,14 @@ export default function SignUp(){
                 <SubmitBotton
                     onPress={ handleSignUp }  
                 >
-                    <SubmitText>Cadastrar</SubmitText>
+                    {
+                        loadingAuth ? (
+                            <ActivityIndicator size={24} color="#313234"/>
+                        ) : (
+                            <SubmitText>Cadastrar</SubmitText>
+                        )
+                    }
+                    
                 </SubmitBotton>
 
             </Container>

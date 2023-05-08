@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Platform } from "react-native";
+import { Platform, ActivityIndicator } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -17,7 +17,7 @@ export default function SignIn(){
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, loadingAuth } = useContext(AuthContext);
 
     function handleSignIn() {
         signIn(email, password);
@@ -60,7 +60,14 @@ export default function SignIn(){
                 <SubmitBotton
                     onPress={ handleSignIn }
                 >
-                    <SubmitText>Acessar</SubmitText>
+                    {
+                        loadingAuth ? (
+                            <ActivityIndicator size={24} color="#313234"/>
+                        ) : (
+                            <SubmitText>Acessar</SubmitText>
+                        )
+                    }
+                    
                 </SubmitBotton>
 
                 <BtnLinK

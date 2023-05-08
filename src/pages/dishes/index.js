@@ -37,7 +37,7 @@ export default function Dishes({navigation, route}) {
             >
               <Image 
                 style={styles.imagebutton2} 
-                source={require('../../assets/Star_1.png')}
+                source={require('../../assets/carrinho.png')}
               />
             </TouchableOpacity>
           </View>
