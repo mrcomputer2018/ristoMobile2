@@ -1,8 +1,16 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, KeyboardAvoidingView, View, Image, TouchableOpacity, Platform } from 'react-native';
+import React, { useContext } from 'react';
+import { StyleSheet, Text, KeyboardAvoidingView, View, Image, TouchableOpacity, Platform } from 'react-native';
 
+import { CartContext } from '../../contexts/cartContext';
 
 export default function Dishes({navigation, route}) {
+
+  const { cart, addItemCard } = useContext(CartContext);
+
+  function handleAddCart(item){
+    addItemCard(item);
+  }
+
   return (
       <KeyboardAvoidingView 
         behavior={Platform.OS == 'ios' ? 'padding' : ''} 
@@ -55,7 +63,10 @@ export default function Dishes({navigation, route}) {
 
             <View style={styles.areaButtonAdicionar}>
               {/* Adicionar evento para jogar o prato para o carrinho */}
-              <TouchableOpacity style={styles.buttonCarrinho}>
+              <TouchableOpacity 
+                style={styles.buttonCarrinho}
+                onPress={ () => navigation.navigate('Seu Pedido') }
+              >
                 <Text style={styles.textobotao}>Adicionar ao carrinho</Text>
                 <Image 
                   style={styles.imagebuttonc} 

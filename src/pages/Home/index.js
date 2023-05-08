@@ -56,7 +56,7 @@ export default function Delivery() {
             {
               nome: 'Pizza',
               preco: '49,99',
-              descricao: 'Deliciosa pizza, feita com queijo, orégano e azeitonas.',
+              descricao: 'Deliciosa pizza, feita com queijo, tomate, manjericão, orégano e azeitonas.',
               imagem: require('../../assets/pizza.jpg'),
             }
           )}>

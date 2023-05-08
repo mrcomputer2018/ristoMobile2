@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     btnFooter: {
-        backgroundColor: '#E4723C',
+        backgroundColor: '#facc15',
         height: 45,
         width:220,
         justifyContent: 'center',
