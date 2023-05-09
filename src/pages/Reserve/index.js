@@ -1,132 +1,161 @@
-import React, { useState } from "react";
-import { Formik } from "formik";
-import * as Yup from "yup";
-
+import React, { useState, useContext } from "react";
+import firebase from '../../services/firebase/firebaseConnection';
+import { useNavigation } from "@react-navigation/native";
+/* import { Formik } from "formik";
+import * as Yup from "yup"; */
 import 
-{ Text, View, StyleSheet, TextInput, TouchableOpacity } 
+{ Text, View, StyleSheet, TextInput, TouchableOpacity, Keyboard, Alert } 
 from "react-native";
+
+import { AuthContext } from "../../contexts/auth";
 
 import Header from "../../components/Header";
 
-const ReserveSchema = Yup.object().shape({
-
-    name: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
- 
-    lastName: Yup.string()
-       .min(2, 'Too Short!')
-       .max(50, 'Too Long!')
-       .required('Required'),
- 
-    email: Yup.string().email('Invalid email').required('Required'),
- 
-  });
-
 export default function Reserve(){
+
+    const navigation = useNavigation();
 
     const [ nameReserve, setNameReserve ] = useState('');
     const [ emailReserve, setEmailReserve ] = useState('');
     const [ telephone, setTelephone ] = useState('');
     const [ date, setDate ] = useState('');
     const [ hour, setHour] = useState('');
+    const { user } = useContext(AuthContext);
+
+
+    function handleSubmit(){
+        // fechando teclado
+        Keyboard.dismiss();
+
+        if( nameReserve === '' || emailReserve === '' || telephone === '' || date === '' || hour === '' ) {
+            alert('Preencha todos os campos');
+            return;
+        }
+
+        Alert.alert(
+            'Confirmando dados',
+            `Nome: ${nameReserve}\nData: ${date} - Hora: ${hour}`,
+            [
+                {
+                    text: 'Cancelar',
+                    style: 'cancel'
+                },
+                {
+                    text: 'Continuar',
+                    onPress: () => handleAdd(),
+                },
+            ]
+        )
+    }
+
+    async function handleAdd() {
+        let uid = user.uid;
+
+        //gerando chave aleatoria
+        let key = await firebase.database().ref('reserve').child(uid)
+        .push().key;
+
+        await firebase.database().ref('reserve')
+        .child(uid).child(key).set({
+            nome: nameReserve,
+            email:emailReserve,
+            telefone: telephone,
+            data: date,
+            hora: hour
+        })
+
+        Keyboard.dismiss();
+        setNameReserve('');
+        setEmailReserve('');
+        setTelephone('');
+        setDate('');
+        setHour('');
+        alert("Reserva efetuada com sucesso.");
+        navigation.navigate('Home');
+    }
 
     return(
-        <Formik
-            initialValues={{
-                nameReserve:'',
-                emailReserve: '',
-                telephone: '',
-                date: '',
-                hour: '',
-            }}
-        >
-            {({values, errors, touched, handleSubmit }) => (
 
-            <View style={ styles.background }>
-                <Header/>
+        <View style={ styles.background }>
+            <Header/>
 
-                <View style={ styles.container }>
-                    <Text style={ styles.text }>Reserva</Text>
+            <View style={ styles.container }>
+                <Text style={ styles.text }>Reserva</Text>
 
-                    <View style={ styles.viewInput }>
-                        <Text style={ styles.textLabel }>Nome:</Text>
-                        <TextInput
-                            style={ styles.input }
-                            placeholder="ex: joao silva"
-                            autoCorrect={ false }
-                            autoCapitalize="none"
-                            value= { nameReserve }
-                            onChangeText={ (text) => setNameReserve(text) }
-                        />
-                    </View>
-
-                    <View style={ styles.viewInput }>
-                        <Text style={ styles.textLabel }>E-mail:</Text>
-                        <TextInput
-                            style={ styles.input }
-                            placeholder="ex: contato@contato.com"
-                            autoCorrect={ false }
-                            autoCapitalize="none"
-                            value= { emailReserve }
-                            onChangeText={ (text) => setEmailReserve(text) }
-                        />
-                    </View>
-
-                    {/* telefone */}
-                    <View style={ styles.viewInput }>
-                        <Text style={ styles.textLabel }>telefone de contato:</Text>
-                        <TextInput
-                            style={ styles.input }
-                            placeholder="ex: (21)99999-9999"
-                            autoCorrect={ false }
-                            autoCapitalize="none"
-                            value= { telephone }
-                            onChangeText={ (text) => setTelephone(text) }
-                        />
-                    </View>
-
-                    {/* dia */}
-                    <View style={ styles.viewInput }>
-                        <Text style={ styles.textLabel }>Data:</Text>
-                        <TextInput
-                            style={ styles.input }
-                            placeholder="ex: 03/03/2023"
-                            autoCorrect={ false }
-                            autoCapitalize="none"
-                            value= { date }
-                            onChangeText={ (text) => setDate(text) }
-                        />
-                    </View>
-
-                    {/* horario */}
-                    <View style={ styles.viewInput }>
-                        <Text style={ styles.textLabel }>Horario:</Text>
-                        <TextInput
-                            style={ styles.input }
-                            placeholder="ex: 13:00"
-                            autoCorrect={ false }
-                            autoCapitalize="none"
-                            value= { hour }
-                            onChangeText={ (text) => setHour(text) }
-                        />
-                    </View>
+                <View style={ styles.viewInput }>
+                    <Text style={ styles.textLabel }>Nome:</Text>
+                    <TextInput
+                        style={ styles.input }
+                        placeholder="ex: joao silva"
+                        autoCorrect={ false }
+                        autoCapitalize="none"
+                        value= { nameReserve }
+                        onChangeText={ (text) => setNameReserve(text) }
+                    />
                 </View>
-                
-                {/*  botao */}
-                <View style={ styles.btnView }>
-                    <TouchableOpacity 
-                        style={ styles.btn }
-                        onPress={() => {}}
-                        >
-                        <Text style={ styles.textBtn }>Reservar</Text>
-                    </TouchableOpacity>
+
+                <View style={ styles.viewInput }>
+                    <Text style={ styles.textLabel }>E-mail:</Text>
+                    <TextInput
+                        style={ styles.input }
+                        placeholder="ex: contato@contato.com"
+                        autoCorrect={ false }
+                        autoCapitalize="none"
+                        value= { emailReserve }
+                        onChangeText={ (text) => setEmailReserve(text) }
+                    />
+                </View>
+
+                {/* telefone */}
+                <View style={ styles.viewInput }>
+                    <Text style={ styles.textLabel }>telefone de contato:</Text>
+                    <TextInput
+                        style={ styles.input }
+                        placeholder="ex: (21)99999-9999"
+                        autoCorrect={ false }
+                        autoCapitalize="none"
+                        value= { telephone }
+                        onChangeText={ (text) => setTelephone(text) }
+                    />
+                </View>
+
+                {/* dia */}
+                <View style={ styles.viewInput }>
+                    <Text style={ styles.textLabel }>Data:</Text>
+                    <TextInput
+                        style={ styles.input }
+                        placeholder="ex: 03/03/2023"
+                        autoCorrect={ false }
+                        autoCapitalize="none"
+                        value= { date }
+                        onChangeText={ (text) => setDate(text) }
+                    />
+                </View>
+
+                {/* horario */}
+                <View style={ styles.viewInput }>
+                    <Text style={ styles.textLabel }>Horario:</Text>
+                    <TextInput
+                        style={ styles.input }
+                        placeholder="ex: 13:00"
+                        autoCorrect={ false }
+                        autoCapitalize="none"
+                        value= { hour }
+                        onChangeText={ (text) => setHour(text) }
+                    />
                 </View>
             </View>
-
-            )}
-        </Formik>
+            
+            {/*  botao */}
+            <View style={ styles.btnView }>
+                <TouchableOpacity 
+                    style={ styles.btn }
+                    onPress={ handleSubmit }
+                    >
+                    <Text style={ styles.textBtn }>Reservar</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
     );
 }
 

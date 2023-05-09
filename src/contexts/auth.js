@@ -88,7 +88,6 @@ export default function AuthProvider({ children }) {
                 await firebase.database().ref('users')
                 .child(uid)
                 .set({
-                    saldo: 0,
                     nome: nome
                 })
                 .then( () => {
