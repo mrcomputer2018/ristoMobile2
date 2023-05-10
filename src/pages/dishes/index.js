@@ -40,7 +40,7 @@ export default function Dishes({navigation, route}) {
 
         </View>
        
-          <Text style={styles.nomePrato}>{(route.params?.nome === null ? cart[0].nome : route.params?.nome)}</Text>
+          <Text style={styles.nomePrato}>{ route.params?.nome }</Text>
           
           <Text style={styles.precoPrato}>R${route.params?.preco}</Text>
        

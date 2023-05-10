@@ -37,6 +37,7 @@ export default function CartProvider({ children }) {
         setCart(products => [...products, data ]);
         totalResultCart([...cart, data]);
         console.log([...cart, data]);
+       /*  console.log('Teste unico:' + cart[0].nome) */
     }
 
     function removeItemCart(product){
