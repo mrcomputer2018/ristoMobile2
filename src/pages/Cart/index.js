@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity }
+import firebase from '../../services/firebase/firebaseConnection';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert }
 from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+import { AuthContext } from "../../contexts/auth";
 import { CartContext } from '../../contexts/cartContext';
 
 import CardItem from '../../components/CardItem';
@@ -10,7 +12,51 @@ import CardItem from '../../components/CardItem';
 export default function Cart(){
 
     const { cart, addItemCard, removeItemCart, total } = useContext(CartContext);
+    const { user, loadingAuth } = useContext(AuthContext);
+
     const navigation = useNavigation();
+
+    function handleCloseOrder() {
+
+        if( cart.length === 0 ) { 
+            alert('Pedido nao efatudo. Sem itens no carrinho.');
+            navigation.navigate('Seu Pedido');
+            return;
+        }
+
+        Alert.alert(
+            'Confirmando dado',
+            `Valor Total: RS${total}`,
+            [
+                {
+                    text: 'Cancelar',
+                    style: 'cancel'
+                },
+                {
+                    text: 'Continuar',
+                    onPress: () => handleAddOrder(),
+                },
+            ]
+        )
+
+    }
+
+    async function handleAddOrder(){
+        let uid = user.uid;
+
+        //gerando chave aleatoria
+        let key = await firebase.database().ref('order').child(uid)
+        .push().key;
+
+        await firebase.database().ref('order')
+        .child(uid).child(key).set({
+            cart: cart,
+            total: total
+        })
+
+        alert("Pedido efetuado com sucesso.");
+        navigation.navigate('Home');
+    }
 
     return (
         <View style={ styles.container }>
@@ -48,15 +94,13 @@ export default function Cart(){
                 ListFooterComponent={ () =>
                     <View>
                         <Text style={ styles.total }>
-                            { total !== 0 && `Total: RS ${ total }`}
+                            { total !== 0 && `Total: RS ${ total.toFixed(2) }`}
                         </Text>
 
                         <View style={ styles.btnViewFooter }>
                             <TouchableOpacity 
                                 style={ styles.btnFooter }
-                                onPress={
-                                    () => navigation.navigate('Seu Pedido')
-                                }
+                                onPress={ handleCloseOrder }
                             >
                                 <Text style={ styles.textBtnFooter }>
                                     Fechar pedido

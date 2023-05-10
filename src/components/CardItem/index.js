@@ -1,27 +1,20 @@
-import React,{ useState } from "react";
+import React from "react";
 import { View, Text, StyleSheet,TouchableOpacity, Image } from "react-native";
 
 export default function CardItem({ data, addAmount, removeAmount }){
 
-    const [amount, setAmount]= useState(data?.amount);
-
     function handleIncrease(){
         addAmount();
-        //chamar do contexto para aumentar e somar +1
-        setAmount(item => item + 1);
-       
+
         console.log('CarItem >>>>> amount: ' + data.amount);
     }
 
     function handleDecrease(){
         removeAmount()
     
-        if(amount === 0){
-          setAmount(0);
+        if(data.amount === 0){
           return;
         }
-    
-        setAmount(item => item - 1)
     
       }
 
@@ -41,7 +34,7 @@ export default function CardItem({ data, addAmount, removeAmount }){
                         <Text style={ styles.btnText }>-</Text>
                     </TouchableOpacity>
 
-                    <Text style={ styles.amount }>{ amount }</Text>
+                    <Text style={ styles.amount }>{ data.amount }</Text>
 
                     <TouchableOpacity 
                         style={ styles.btnAdd }
