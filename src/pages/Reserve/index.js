@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import firebase from '../../services/firebase/firebaseConnection';
 import { useNavigation } from "@react-navigation/native";
 import 
-{ Text, View, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Keyboard, Alert, ActivityIndicator } 
+{ Text, View, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Keyboard, Alert, ActivityIndicator, Platform } 
 from "react-native";
 import { TextInputMask } from 'react-native-masked-text'
 
@@ -95,7 +95,7 @@ export default function Reserve(){
             <Header/>
 
             <View style={ styles.container }>
-                <Text style={ styles.text }>Reserva</Text>
+                <Text style={ styles.text }>Faça sua reserva aqui.</Text>
 
                 <View style={ styles.viewInput }>
                     <TextInput
@@ -195,13 +195,12 @@ export default function Reserve(){
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        /* alignItems: 'center', */
         justifyContent: 'center',
         backgroundColor: '#eee',
     },
     container: {
         backgroundColor: '#fafafa',
-        borderRadius: 16,
+        borderRadius: 8,
         marginRight:20,
         marginLeft:20,
         marginTop: 10,
@@ -210,7 +209,7 @@ const styles = StyleSheet.create({
         borderColor: '#ddd',
     },
     text: {
-        fontSize: 26,
+        fontSize: 22,
         color: '#333',
         padding: 15,
         fontWeight: 'bold',

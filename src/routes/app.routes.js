@@ -9,6 +9,7 @@ import MyCar from "../pages/MyCar";
 import Reserve from "../pages/Reserve";
 import Cart from "../pages/Cart";
 import Dishes from "../pages/Dishes";
+import MyReserve from "../pages/MyReserve";
 import CustomDrawer from "../components/CustomDrawer";
 
 const appDrawer = createDrawerNavigator();
@@ -81,6 +82,16 @@ export default function AppRoutes( ){
                     headerShown: false,
                     drawerIcon: () =>
                         <Ionicons name="hourglass-outline" size={24} color='#333'/>
+                }}
+            />
+
+            <appDrawer.Screen
+                            name="Minhas Reservas" 
+                            component={ MyReserve }
+                            options={{
+                                headerShown: false,
+                                drawerIcon: () =>
+                                    <Ionicons name="calendar-outline" size={24} color='#333'/>
                 }}
             />
             

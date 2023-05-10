@@ -76,7 +76,7 @@ export default function Delivery() {
               <Text>Lasanha</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Dishes', {
+          <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Pratos', {
                nome: 'Raviolli',
                preco: '49,99',
                descricao: 'Raviolli, feito com queijo e molho de tomate.',
