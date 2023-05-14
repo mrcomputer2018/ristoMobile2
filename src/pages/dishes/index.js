@@ -48,18 +48,18 @@ export default function Dishes({navigation, route}) {
 
         </View>
        
-          <Text style={styles.nomePrato}>{ route.params?.nome === null ?  route.params?.nome : product.nome }</Text>
+          <Text style={styles.nomePrato}>{ route.params?.nome ?  route.params?.nome : product.nome }</Text>
           
           <Text 
             style={styles.precoPrato}>
-              R$ { route.params?.preco === null ?  route.params?.preco : product.preco }
+              R$ { route.params?.preco ? route.params?.preco : product.preco }
           </Text>
        
        <View style={styles.containerIferiorcomImagem}>
 
           <Image 
             style={styles.imageLogo} 
-            source={route.params?.imagem  === null ?  route.params?.imagem : product.imagem }
+            source={route.params?.imagem ? route.params?.imagem : product.imagem }
           />
                 
         <View style={styles.containerInferior}>
@@ -70,7 +70,7 @@ export default function Dishes({navigation, route}) {
 
               <Text 
                 style={styles.descricaoprato}>
-                  {route.params?.descricao === null ?  route.params?.descricao : product.descricao }
+                  {route.params?.descricao ? route.params?.descricao : product.descricao }
               </Text>
 
             <View style={styles.areaButtonAdicionar}>
