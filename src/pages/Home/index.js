@@ -288,7 +288,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5CA48",
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 18
+    fontSize: 19,
+    color:'#131313'
   },
 
   buttonReserva: {
