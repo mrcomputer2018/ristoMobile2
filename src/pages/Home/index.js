@@ -96,7 +96,7 @@ export default function Delivery() {
             {
                 nome: 'Risotto',
                 preco: '39,99',
-                descricao: 'Risoto maravilhoso.',
+                descricao: 'O risoto prato típico italiano. Feito com cebolas, arroz italiano na manteiga da casa, caldo de legumes e com textura cremosa.',
                 imagem: require('../../assets/risoto.jpg'),
             })}>
               <Image style={styles.imagePrato} source={require('../../assets/risoto.jpg')}/>
@@ -106,7 +106,7 @@ export default function Delivery() {
           <TouchableOpacity style={styles.areaPratoButton} onPress={()=> navigation.navigate('Pratos', {
                nome: 'Spaghetti',
                preco: '49,99',
-               descricao: 'Spaghetti feito com carne e molho de tomate.',
+               descricao: 'Spaghetti feito com carne e molho de tomate proprio.',
                imagem: require('../../assets/spaghetti.jpg'),
             })}>
               <Image style={styles.imagePrato} source={require('../../assets/spaghetti.jpg')}/>
