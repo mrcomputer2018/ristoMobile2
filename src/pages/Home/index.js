@@ -278,6 +278,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     alignSelf: 'center',
     color: '#fff',
+    fontSize: 16
   },
 
   textoReservai: {
@@ -286,6 +287,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: "#F5CA48",
     textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 18
   },
 
   buttonReserva: {

@@ -76,6 +76,7 @@ export default function CartProvider({ children }) {
     // limpeza do carrinho
     function clearCart(){
         setCart([]);
+        setTotal(0);
     }
 
     return(
