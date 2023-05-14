@@ -7,6 +7,14 @@ export default function Dishes({navigation, route}) {
 
   const { cart } = useContext(CartContext);
 
+  const product = {
+        id: '1',
+        nome: 'Pizza',
+        preco: 49.99,
+        descricao: 'Deliciosa pizza, feita com queijo, orégano e azeitonas.',
+        imagem: require('../../assets/pizza.jpg'),
+    }
+
   return (
       <KeyboardAvoidingView 
         behavior={Platform.OS == 'ios' ? 'padding' : ''} 
@@ -40,22 +48,30 @@ export default function Dishes({navigation, route}) {
 
         </View>
        
-          <Text style={styles.nomePrato}>{ route.params?.nome }</Text>
+          <Text style={styles.nomePrato}>{ route.params?.nome === null ?  route.params?.nome : product.nome }</Text>
           
-          <Text style={styles.precoPrato}>R${route.params?.preco}</Text>
+          <Text 
+            style={styles.precoPrato}>
+              R$ { route.params?.preco === null ?  route.params?.preco : product.preco }
+          </Text>
        
        <View style={styles.containerIferiorcomImagem}>
 
-          <Image style={styles.imageLogo} source={route.params?.imagem}/>
-          
-        
+          <Image 
+            style={styles.imageLogo} 
+            source={route.params?.imagem  === null ?  route.params?.imagem : product.imagem }
+          />
+                
         <View style={styles.containerInferior}>
             
               <Text style={styles.descricao}>Descrição</Text>
 
               <View style={styles.linhadescricao}></View>
 
-              <Text style={styles.descricaoprato}>{route.params?.descricao}</Text>
+              <Text 
+                style={styles.descricaoprato}>
+                  {route.params?.descricao === null ?  route.params?.descricao : product.descricao }
+              </Text>
 
             <View style={styles.areaButtonAdicionar}>
               {/* Adicionar evento para jogar o prato para o carrinho */}
