@@ -73,8 +73,13 @@ export default function CartProvider({ children }) {
         setTotal(result);
     }
 
+    // limpeza do carrinho
+    function clearCart(){
+        setCart([]);
+    }
+
     return(
-        <CartContext.Provider value={{ cart, addItemCard, removeItemCart, total }}>
+        <CartContext.Provider value={{ cart, addItemCard, removeItemCart, total, clearCart }}>
             { children }
         </CartContext.Provider>
     )

@@ -11,7 +11,7 @@ import CardItem from '../../components/CardItem';
 
 export default function Cart(){
 
-    const { cart, addItemCard, removeItemCart, total } = useContext(CartContext);
+    const { cart, addItemCard, removeItemCart, total, clearCart } = useContext(CartContext);
     const { user, loadingAuth } = useContext(AuthContext);
 
     const navigation = useNavigation();
@@ -53,6 +53,9 @@ export default function Cart(){
             cart: cart,
             total: total
         })
+        
+        // limpando carrinho
+        clearCart();
 
         alert("Pedido efetuado com sucesso.");
         navigation.navigate('Home');
