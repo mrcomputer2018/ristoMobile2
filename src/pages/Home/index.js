@@ -130,16 +130,16 @@ export default function Delivery() {
 
         <View style={styles.linhareserva}></View>
         
-        <Text style={styles.textreserva}>Reserva</Text>
+        <Text style={styles.textreserva}>Chat</Text>
 
         {/* reserva */}
         <TouchableOpacity 
           style={styles.buttonReserva}
-          onPress={() => navigation.navigate('Reserva')}
+          onPress={() => navigation.navigate('Question')}
         >
 
           <Image style={styles.imageRestaurante} source={require('../../assets/restaurante.jpg')}/>
-          <Text style={styles.textoReservai}>Venha nos conhecer</Text>
+          <Text style={styles.textoReservai}>Faça seu pedido via chat</Text>
           <Text style={styles.textRestaurante}>O restaurante 5 estrelas que amamos!</Text>
 
         </TouchableOpacity>

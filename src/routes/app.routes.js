@@ -6,7 +6,7 @@ import Ionicons from "react-native-vector-icons/Ionicons"
 import Home from "../pages/Home";
 import Profile from "../pages/Profile"
 import MyCar from "../pages/MyCar";
-import Reserve from "../pages/Reserve";
+import Question from "../pages/Question";
 import Cart from "../pages/Cart";
 import Dishes from "../pages/Dishes";
 import MyReserve from "../pages/MyReserve";
@@ -76,8 +76,8 @@ export default function AppRoutes( ){
             />
 
             <appDrawer.Screen
-                name="Reserva" 
-                component={ Reserve }
+                name="Pedido via chat" 
+                component={ Question }
                 options={{
                     headerShown: false,
                     drawerIcon: () =>
@@ -86,7 +86,7 @@ export default function AppRoutes( ){
             />
 
             <appDrawer.Screen
-                            name="Minhas Reservas" 
+                            name="Meus Pedidos" 
                             component={ MyReserve }
                             options={{
                                 headerShown: false,
