@@ -30,6 +30,8 @@ export default function Question(){
             alert('Preencha o campo de pergunta.');
             return;
         }
+
+        handleAdd();
     }
 
     async function handleAdd() {
@@ -38,16 +40,12 @@ export default function Question(){
         let uid = user.uid;
 
         //gerando chave aleatoria
-        let key = await firebase.database().ref('reserve').child(uid)
+        let key = await firebase.database().ref('question').child(uid)
         .push().key;
 
-        await firebase.database().ref('reserve')
+        await firebase.database().ref('question')
         .child(uid).child(key).set({
-            nome: nameReserve,
-            email:emailReserve,
-            telefone: telephone,
-            data: date,
-            hora: hour
+            question: question,
         })
 
         Keyboard.dismiss();

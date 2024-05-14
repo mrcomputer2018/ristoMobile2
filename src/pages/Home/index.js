@@ -135,7 +135,7 @@ export default function Delivery() {
         {/* reserva */}
         <TouchableOpacity 
           style={styles.buttonReserva}
-          onPress={() => navigation.navigate('Question')}
+          onPress={() => navigation.navigate('Pedido via chat')}
         >
 
           <Image style={styles.imageRestaurante} source={require('../../assets/restaurante.jpg')}/>
