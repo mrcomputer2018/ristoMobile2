@@ -80,7 +80,7 @@ export default function Reserve(){
         setTelephone('');
         setDate('');
         setHour('');
-       setLoadingReserve(false);
+        setLoadingReserve(false);
         alert("Reserva efetuada com sucesso.");
         navigation.navigate('Home');
     }
