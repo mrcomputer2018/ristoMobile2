@@ -27,7 +27,7 @@ export default function Question(){
         Keyboard.dismiss();
 
         if( question === '') {
-            alert('Preencha o campo de pergunta.');
+            alert('Preencha este campo com uma pergunta.');
             return;
         }
 
@@ -87,7 +87,7 @@ export default function Question(){
                         loadingQuestion ? (
                             <ActivityIndicator size={24} color="#313234"/>
                         ) : (
-                            <Text style={ styles.textBtn }>Enviar pergunta</Text>
+                            <Text style={ styles.textBtn }>Enviar</Text>
                         )
                     }
                 </TouchableOpacity>
