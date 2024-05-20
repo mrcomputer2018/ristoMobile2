@@ -83,7 +83,7 @@ export default function MyReserve(){
         >
             <Header />
 
-            <Text style={ styles.title }>Minhas Reservas</Text>
+            <Text style={ styles.title }>Minhas Pedidos via Chat</Text>
 
             <View style={ styles.container }>
                 <FlatList
@@ -100,7 +100,7 @@ export default function MyReserve(){
                         () => 
                         <View style={ styles.viewText }>
                             <Text style={ styles.text }>
-                                   Sem reservas no momento...
+                                   Sem pedidos no momento...
                             </Text>
     
                             <View style={ styles.btnView }>
