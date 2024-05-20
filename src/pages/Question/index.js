@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
         padding: 5,
         borderWidth: 1,
         borderColor: '#ddd',
-        height: 280,
+        height: 260,
     },
     text: {
         fontSize: 22,
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#facc15',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 20,
+        marginTop: 5,
         marginLeft: 15,
         marginRight: 15,
         height: 45,
