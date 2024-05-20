@@ -1,13 +1,15 @@
 import React, { useState, useContext } from "react";
-import firebase from '../../services/firebase/firebaseConnection';
 import { useNavigation } from "@react-navigation/native";
 import 
 { Text, View, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Keyboard, Alert, ActivityIndicator, Platform } 
 from "react-native";
+import axios from "axios";
+
 
 import { AuthContext } from "../../contexts/auth";
 
 import Header from "../../components/Header";
+import { set } from "react-native-reanimated";
 
 export default function Question(){
 
@@ -15,6 +17,7 @@ export default function Question(){
 
     const [ question, setQuestion ] = useState('');
     const [ loadingQuestion, setLoadingQuestion ] = useState(false);
+    const [ data, setData ] = useState([]);
 
     const { user } = useContext(AuthContext);
 
@@ -31,22 +34,24 @@ export default function Question(){
             return;
         }
 
-        handleAdd();
+        handleSendQuestions();
     }
 
-    async function handleAdd() {
+    async function handleSendQuestions() {
         setLoadingQuestion(true);
 
-        let uid = user.uid;
-
-        //gerando chave aleatoria
-        let key = await firebase.database().ref('question').child(uid)
-        .push().key;
-
-        await firebase.database().ref('question')
-        .child(uid).child(key).set({
-            question: question,
+        await axios.post("http://10.0.2.2:3000/ask", {
+            question: `${question}`,
         })
+        .then((response) => { 
+            setData(response.data);
+            newData = [ ...data, response.data]
+            setData(newData);
+        })
+        .catch((error) => {
+            console.log(error);
+            Alert.alert('Erro ao enviar pergunta. Tente novamente mais tarde.');
+        });
 
         Keyboard.dismiss();
         setQuestion('');
@@ -66,6 +71,8 @@ export default function Question(){
                 <Text style={ styles.text }>Faça seu pedido via chat aqui!!!</Text>
 
                 <View style={ styles.viewInput }>
+                    <Text style={ styles.label }>Perguntas:</Text>
+
                     <TextInput
                         style={ styles.input }
                         placeholder="digite aqui..."
@@ -75,23 +82,51 @@ export default function Question(){
                         onChangeText={ (text) => setQuestion(maskOnlyLetters(text)) }
                     />
                 </View>
+
+                {/*  botao */}
+                <View style={ styles.btnView }>
+                    <TouchableOpacity 
+                        style={ styles.btn }
+                        onPress={ handleSubmit }
+                        >
+                        {
+                            loadingQuestion ? (
+                                <ActivityIndicator size={24} color="#313234"/>
+                            ) : (
+                                <Text style={ styles.textBtn }>Enviar</Text>
+                            )
+                        }
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+            <View style={ styles.answerView }>
+                <Text style={ styles.label }>Conversa:</Text>
+
+                { 
+                data.length > 0 ?
+                (data.map((item, index) => {
+                    return(
+                        <View key={index}>
+                            <Text style={ styles.textQuestion }>
+                                Você: { item.question }
+                            </Text>
+
+                            <Text style={ styles.textAnswer }>
+                                Risto: { item.answer }
+                            </Text>
+                        </View>
+                    );
+                }))
+                :
+                (
+                    <Text style={ styles.textQuestion }>
+                        sem conversa ainda...
+                    </Text>
+                )}
             </View>
             
-            {/*  botao */}
-            <View style={ styles.btnView }>
-                <TouchableOpacity 
-                    style={ styles.btn }
-                    onPress={ handleSubmit }
-                    >
-                     {
-                        loadingQuestion ? (
-                            <ActivityIndicator size={24} color="#313234"/>
-                        ) : (
-                            <Text style={ styles.textBtn }>Enviar</Text>
-                        )
-                    }
-                </TouchableOpacity>
-            </View>
+            
         </KeyboardAvoidingView>
     );
 }
@@ -99,7 +134,6 @@ export default function Question(){
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        justifyContent: 'center',
         backgroundColor: '#eee',
     },
     container: {
@@ -111,6 +145,7 @@ const styles = StyleSheet.create({
         padding: 5,
         borderWidth: 1,
         borderColor: '#ddd',
+        height: 280,
     },
     text: {
         fontSize: 22,
@@ -122,11 +157,12 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         marginRight: 15,
         marginBottom: 20,
+        marginTop: 0,
     },
     textLabel: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 10,
+        paddingBottom: 20,
     },
     input: {
         borderWidth: 1,
@@ -135,6 +171,7 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 18,
         backgroundColor: '#fff',
+        marginTop: 5,
     },
     btnView: {
         flex: 1,
@@ -154,5 +191,28 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         textTransform: 'uppercase',
+    },
+    answerView: {
+        backgroundColor: '#fafafa',
+        borderRadius: 8,
+        marginRight:20,
+        marginLeft:20,
+        marginTop: 10,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#ddd',
+    },
+    textAnswer: {
+        fontSize: 16,
+        color: '#333',
+        padding: 8,
+        fontWeight: 'bold',
+        backgroundColor: '#DDD',
+        borderRadius: 20,
+    },
+    textQuestion: {
+        fontSize: 16,
+        color: '#333',
+        padding: 8,
     },
 });
