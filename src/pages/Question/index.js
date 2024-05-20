@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import 
-{ Text, View, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Keyboard, Alert, ActivityIndicator, Platform } 
+{ Text, View, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Keyboard, Alert, ActivityIndicator, Platform, ScrollView } 
 from "react-native";
 import axios from "axios";
 
@@ -45,7 +45,7 @@ export default function Question(){
         })
         .then((response) => { 
             setData(response.data);
-            newData = [ ...data, response.data]
+            newData = [response.data,  ...data]
             setData(newData);
         })
         .catch((error) => {
@@ -67,66 +67,74 @@ export default function Question(){
         >
             <Header/>
 
-            <View style={ styles.container }>
-                <Text style={ styles.text }>Faça seu pedido via chat aqui!!!</Text>
+            <View>
+                <ScrollView>
+                    <View style={ styles.container }>
+                        <Text style={ styles.text }>Faça seu pedido via chat aqui!!!</Text>
 
-                <View style={ styles.viewInput }>
-                    <Text style={ styles.label }>Perguntas:</Text>
+                        <View style={ styles.viewInput }>
+                            <Text style={ styles.label }>Perguntas:</Text>
 
-                    <TextInput
-                        style={ styles.input }
-                        placeholder="digite aqui..."
-                        autoCorrect={ false }
-                        autoCapitalize="none"
-                        value= { question }
-                        onChangeText={ (text) => setQuestion(maskOnlyLetters(text)) }
-                    />
-                </View>
-
-                {/*  botao */}
-                <View style={ styles.btnView }>
-                    <TouchableOpacity 
-                        style={ styles.btn }
-                        onPress={ handleSubmit }
-                        >
-                        {
-                            loadingQuestion ? (
-                                <ActivityIndicator size={24} color="#313234"/>
-                            ) : (
-                                <Text style={ styles.textBtn }>Enviar</Text>
-                            )
-                        }
-                    </TouchableOpacity>
-                </View>
-            </View>
-
-            <View style={ styles.answerView }>
-                <Text style={ styles.label }>Conversa:</Text>
-
-                { 
-                data.length > 0 ?
-                (data.map((item, index) => {
-                    return(
-                        <View key={index}>
-                            <Text style={ styles.textQuestion }>
-                                Você: { item.question }
-                            </Text>
-
-                            <Text style={ styles.textAnswer }>
-                                Risto: { item.answer }
-                            </Text>
+                            <TextInput
+                                style={ styles.input }
+                                placeholder="digite aqui..."
+                                autoCorrect={ false }
+                                autoCapitalize="none"
+                                value= { question }
+                                onChangeText={ (text) => setQuestion(maskOnlyLetters(text)) }
+                            />
                         </View>
-                    );
-                }))
-                :
-                (
-                    <Text style={ styles.textQuestion }>
-                        sem conversa ainda...
-                    </Text>
-                )}
+
+                        {/*  botao */}
+                        <View style={ styles.btnView }>
+                            <TouchableOpacity 
+                                style={ styles.btn }
+                                onPress={ handleSubmit }
+                                >
+                                {
+                                    loadingQuestion ? (
+                                        <ActivityIndicator size={24} color="#313234"/>
+                                    ) : (
+                                        <Text style={ styles.textBtn }>Enviar</Text>
+                                    )
+                                }
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
+                    <View style={ styles.answerView }>
+                        <ScrollView 
+                        vertical={true}
+                        showsVerticalScrollIndicator={true}
+                        >
+                            <Text style={ styles.label }>Conversa:</Text>
+
+                            { 
+                            data.length > 0 ?
+                            (data.map((item, index) => {
+                                return(
+                                    <View key={index}>
+                                        <Text style={ styles.textQuestion }>
+                                            Você: { item.question }
+                                        </Text>
+
+                                        <Text style={ styles.textAnswer }>
+                                            Risto: { item.answer }
+                                        </Text>
+                                    </View>
+                                );
+                            }))
+                            :
+                            (
+                                <Text style={ styles.textQuestion }>
+                                    sem conversa ainda...
+                                </Text>
+                            )}
+                        </ScrollView>
+                    </View>
+                </ScrollView>
             </View>
-            
-            
+
         </KeyboardAvoidingView>
     );
 }
