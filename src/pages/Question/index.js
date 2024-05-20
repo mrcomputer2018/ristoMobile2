@@ -9,7 +9,6 @@ import axios from "axios";
 import { AuthContext } from "../../contexts/auth";
 
 import Header from "../../components/Header";
-import { set } from "react-native-reanimated";
 
 export default function Question(){
 
@@ -67,7 +66,7 @@ export default function Question(){
         >
             <Header/>
 
-            <View>
+            <View style={styles.viewScroll}>
                 <ScrollView>
                     <View style={ styles.container }>
                         <Text style={ styles.text }>Faça seu pedido via chat aqui!!!</Text>
@@ -103,38 +102,33 @@ export default function Question(){
                     </View>
 
                     <View style={ styles.answerView }>
-                        <ScrollView 
-                        vertical={true}
-                        showsVerticalScrollIndicator={true}
-                        >
-                            <Text style={ styles.label }>Conversa:</Text>
+                    
+                        <Text style={ styles.label }>Conversa:</Text>
 
-                            { 
-                            data.length > 0 ?
-                            (data.map((item, index) => {
-                                return(
-                                    <View key={index}>
-                                        <Text style={ styles.textQuestion }>
-                                            Você: { item.question }
-                                        </Text>
+                        { 
+                        data.length > 0 ?
+                        (data.map((item, index) => {
+                            return(
+                                <View key={index}>
+                                    <Text style={ styles.textQuestion }>
+                                        Você: { item.question }
+                                    </Text>
 
-                                        <Text style={ styles.textAnswer }>
-                                            Risto: { item.answer }
-                                        </Text>
-                                    </View>
-                                );
-                            }))
-                            :
-                            (
-                                <Text style={ styles.textQuestion }>
-                                    sem conversa ainda...
-                                </Text>
-                            )}
-                        </ScrollView>
+                                    <Text style={ styles.textAnswer }>
+                                        Risto: { item.answer }
+                                    </Text>
+                                </View>
+                            );
+                        }))
+                        :
+                        (
+                            <Text style={ styles.textQuestion }>
+                                sem conversa ainda...
+                            </Text>
+                        )}
                     </View>
                 </ScrollView>
             </View>
-
         </KeyboardAvoidingView>
     );
 }
@@ -222,5 +216,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#333',
         padding: 8,
+    },
+    viewScroll: {
+        marginBottom: 90,
     },
 });
