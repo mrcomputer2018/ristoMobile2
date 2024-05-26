@@ -87,7 +87,7 @@
 </a> &#xa0; &#xa0;
 
 <a href="https://www.npmjs.com/package/dotenv">
-    Jest
+    <img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white"/>
 </a> &#xa0; &#xa0;
 
 <a href="https://github.com/iuricode/padroes-de-commits">
