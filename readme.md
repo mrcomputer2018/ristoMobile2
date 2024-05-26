@@ -59,7 +59,7 @@
 </a> &#xa0; &#xa0;
 
 <a href="https://openai.com/index/openai-api">
-    ![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34)
+    [![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34)]
 </a> &#xa0; &#xa0;
 
 <a href="https://expressjs.com/pt-br/">
