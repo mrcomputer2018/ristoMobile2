@@ -54,12 +54,12 @@
 
 ## :rocket: Tecnologias usadas ##
 
-<a href="https://nodejs.org">
-   React Native
+<a margin="10" href="https://nodejs.org">
+   <img src="https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
 </a> &#xa0; &#xa0;
 
-<a href="https://openai.com/index/openai-api">
-    [![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34)]
+<a margin="10" href="https://openai.com/index/openai-api">
+    <img src="https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34"/>
 </a> &#xa0; &#xa0;
 
 <a href="https://expressjs.com/pt-br/">
