@@ -49,24 +49,20 @@
 </p>
 
 ## :dart: Sobre ##
-[![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
+
 
 
 ## :rocket: Tecnologias usadas ##
 
-<a margin="10" href="https://nodejs.org">
+<a margin="10" href="https://reactnative.dev/">
    <img src="https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
 </a> &#xa0; &#xa0;
 
-<a margin="10" href="https://openai.com/index/openai-api">
+<a margin="10" href="https://firebase.google.com/?hl=pt-br">
     <img src="https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34"/>
 </a> &#xa0; &#xa0;
 
-<a href="https://expressjs.com/pt-br/">
-    UUID
-</a> &#xa0; &#xa0;
-
-<a href="https://www.npmjs.com/package/nodemon">
+<a href="https://eslint.org/">
     Eslint
 </a> &#xa0; &#xa0;
 
@@ -124,6 +120,7 @@ $ npm run android
 - `start`: ;
 
 ## :memo: Licenças ##
+[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 
 Distribuído sob a licença MIT. Veja [LICENSE](LICENSE) para mais informações.
 
@@ -131,6 +128,8 @@ Distribuído sob a licença MIT. Veja [LICENSE](LICENSE) para mais informações
 
 
 Made with :heart: by <a href="https://github.com/mrcomputer2018" target="_blank">Marcelo Ribeiro</a>
+<br><br>
+[![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
 
 &#xa0;
 
