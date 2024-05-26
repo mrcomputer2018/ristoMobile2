@@ -100,29 +100,28 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-## :checkered_flag: Rodando o chatbot ##
+## :checkered_flag: Rodando o aplicativo ##
 
 ```bash
 # Clone este projeto
-$ git clone https://github.com/mrcomputer2018/CHATBOTTCC
+$ git clone https://github.com/mrcomputer2018/ristoMobile2
 
 # Acesse
-$ cd CHATBOT
+$ cd ristoMobile2
 
 # Instale dependencias
 $ npm install
 
 # Rode o projeto
-$ npm start
+$ npm run android
 
-#Agora, você pode fazer requisições POST para http://localhost:3000/ask com o corpo JSON contendo 
-#a pergunta, e requisições GET para http://localhost:3000/questions para obter todas as perguntas feitas.
+#
 
 ```
 
 ## :video_game: Scripts
 
-- `start`: starts the application at `localhost:3000`;
+- `start`: ;
 
 ## :memo: Licenças ##
 
