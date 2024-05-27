@@ -5,17 +5,17 @@ import 'firebase/auth';
 // Your web app's Firebase configuration
 const firebaseConfig = {
 
-    apiKey: "AIzaSyAQzjqYC3aHSLPPyJK66RAYoU0bca-Q_9c",
+    apiKey: "sua api key",
   
-    authDomain: "ristomobile-a8c6f.firebaseapp.com",
+    authDomain: "seu auth",
   
-    projectId: "ristomobile-a8c6f",
+    projectId: "seu project id",
   
-    storageBucket: "ristomobile-a8c6f.appspot.com",
+    storageBucket: "storageBucket",
   
-    messagingSenderId: "837205652335",
+    messagingSenderId: "messagingSenderId",
   
-    appId: "1:837205652335:web:0fc515fe80b760df28ee9a"
+    appId: "appId"
   
   };
 
