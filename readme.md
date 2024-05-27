@@ -49,7 +49,7 @@
 </p>
 
 ## :dart: Sobre ##
-O aplicativo foi desenvolvido em React Native e outras tecnologias descritas abaixo. Apliactivo registra os pedidos dos clientes via carrinho de compras e por chatbot inteligente. Uso do Firebase como banco de dados noSql e do sietma de autenticação do google. O aceso do usuario ao aplicativo so é efetuado apos cadastro.
+O aplicativo foi desenvolvido em React Native e outras tecnologias descritas abaixo. Apliactivo registra os pedidos dos clientes via carrinho de compras e por chatbot inteligente. Uso do Firebase como banco de dados noSql e do sietma de autenticação do google. O acesso do usuario ao aplicativo so é efetuado apos cadastro no aplicativo. Uso de rotas seguras.
 
 ## :rocket: Tecnologias usadas ##
 
@@ -70,7 +70,7 @@ O aplicativo foi desenvolvido em React Native e outras tecnologias descritas aba
 </a> &#xa0; &#xa0;
 
 <a href="https://styled-components.com/">
-    Styled Components
+    <img src="https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e"/>
 </a> &#xa0; &#xa0;
 
 <a href="https://www.npmjs.com/package/dotenv">
@@ -84,7 +84,7 @@ O aplicativo foi desenvolvido em React Native e outras tecnologias descritas aba
 ## :white_check_mark: Pre-requesitos ##
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [android studio](https://developer.android.com/studio?hl=pt-br). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ## :white_check_mark: Rodando o aplicativo ##
@@ -108,7 +108,10 @@ $ npm run android
 
 ## :video_game: Scripts
 
-- `start`: ;
+- `start`: Inicia o projeto;
+- `android`: Inicia o projeto com as variaveis do android;
+- `test`: Inicia os testes no projeto;
+- `Lint`: Inicia o lint para analisar e detectar problemas no seu padrão de código;
 
 ## :memo: Licenças ##
 [![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
