@@ -2,9 +2,9 @@
   <img src="./src/assets/Imagem1.png" height="200" alt="imagem ristomobile" />
 
 <div align="center">
-  <h1>RistoMobile - Aplicativo Movel de Restaurante + Delivey + chatbot inteligente</h1>
+  <h1>RistoMobile - Aplicativo Movel de Restaurante + Delivey + Chatbot Inteligente</h1>
   <h3>
-    Projeto de um aplicativo movel para restaurante com delivery e chatbot inteligente para registro dos pedidos dos clientes.
+    Projeto de um aplicativo movel para restaurante com delivery e chatbot inteligente para registro de pedidos dos clientes.
   </h3>
 </div>
 
@@ -49,7 +49,7 @@
 </p>
 
 ## :dart: Sobre ##
-
+O aplicativo foi desenvolvido em React Native e outras tecnologias descritas abaixo. 
 
 
 ## :rocket: Tecnologias usadas ##
