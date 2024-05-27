@@ -49,8 +49,7 @@
 </p>
 
 ## :dart: Sobre ##
-O aplicativo foi desenvolvido em React Native e outras tecnologias descritas abaixo. 
-
+O aplicativo foi desenvolvido em React Native e outras tecnologias descritas abaixo. Apliactivo registra os pedidos dos clientes via carrinho de compras e por chatbot inteligente. Uso do Firebase como banco de dados noSql e do sietma de autenticação do google. O aceso do usuario ao aplicativo so é efetuado apos cadastro.
 
 ## :rocket: Tecnologias usadas ##
 
@@ -70,15 +69,7 @@ O aplicativo foi desenvolvido em React Native e outras tecnologias descritas aba
     Axios
 </a> &#xa0; &#xa0;
 
-<a href="https://www.npmjs.com/package/dotenv">
-    Formik
-</a> &#xa0; &#xa0;
-
-<a href="https://www.npmjs.com/package/dotenv">
-    Yup
-</a> &#xa0; &#xa0;
-
-<a href="https://www.npmjs.com/package/dotenv">
+<a href="https://styled-components.com/">
     Styled Components
 </a> &#xa0; &#xa0;
 
@@ -86,7 +77,7 @@ O aplicativo foi desenvolvido em React Native e outras tecnologias descritas aba
     <img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white"/>
 </a> &#xa0; &#xa0;
 
-<a href="https://github.com/iuricode/padroes-de-commits">
+<a href="https://jestjs.io/pt-BR/">
     Padrões de Commit
 </a> &#xa0; &#xa0;
 
